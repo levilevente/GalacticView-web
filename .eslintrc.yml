@@ -1,0 +1,172 @@
+#
+# TS settings
+#
+
+root: true
+env:
+  browser: false
+  node: true
+  es2022: true
+extends:
+  - airbnb-base
+  - airbnb-typescript
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/typescript
+  - prettier
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  project: ./tsconfig.json
+plugins:
+  - "@typescript-eslint"
+  - prettier
+rules:
+  semi: ["error", "always"]
+  quotes: ["error", "single", { "avoidEscape": true }]
+  max-len: ["error", { "code": 120, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreComments": true }]
+  max-classes-per-file: ["error", 5]
+  no-console: 0
+  linebreak-style: 0
+  no-underscore-dangle: ["error", { "allow": ["_id"] }]
+  max-nested-callbacks: ["error", 4]
+  max-params: ["error", 8]
+  max-depth: ["error", 5]
+  max-lines-per-function: ["error", 200]
+  complexity: ["error", 20]
+  class-methods-use-this: 0
+  arrow-parens: ["error", "always"]
+  require-await: ["error"]
+  import/no-unresolved: error
+  import/extensions: ["error", { "js": "always", "ts": "never", "jsx": "always", "tsx": "never" }]
+  no-param-reassign: 0
+  no-plusplus: 0
+  lines-between-class-members: ["error", "always", { "exceptAfterSingleLine": true }]
+  import/prefer-default-export: 0
+  no-trailing-spaces: ["error", { "skipBlankLines": true, "ignoreComments": true }]
+  camelcase: error
+  spaced-comment: error
+  no-duplicate-imports: error
+  prettier/prettier: warn
+  "@typescript-eslint/no-use-before-define": error
+  arrow-body-style: 0
+  import/no-extraneous-dependencies: ["error", { "devDependencies": ["**/vite.config*"] }]
+
+overrides:
+  #
+  # TSX overrides
+  #
+  - files:
+      - "**/*.jsx"
+      - "**/*.tsx"
+    env:
+      browser: true
+      commonjs: true
+      es2022: true
+    extends:
+      - airbnb
+      - airbnb-typescript
+      - eslint:recommended
+      - prettier
+      - plugin:@typescript-eslint/recommended
+      - plugin:import/typescript
+      - plugin:react/recommended
+      - plugin:react-hooks/recommended
+    parser: "@typescript-eslint/parser"
+    parserOptions:
+      ecmaFeatures:
+        jsx: true
+      sourceType: module
+      project: ./tsconfig.json
+    plugins:
+      - react
+      - react-hooks
+    settings:
+      react:
+        version: detect
+      import/resolver:
+        typescript:
+          extensions: [".js", ".jsx", ".ts", ".tsx"]
+    rules:
+      semi: ["error", "always"]
+      quotes: ["error", "single", { "avoidEscape": true }]
+      max-len: ["error", { "code": 120, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreComments": true }]
+      max-classes-per-file: ["error", 5]
+      no-console: 0
+      linebreak-style: 0
+      no-underscore-dangle: ["error", { "allow": ["_id"] }]
+      max-nested-callbacks: ["error", 4]
+      max-params: ["error", 8]
+      max-depth: ["error", 5]
+      max-lines-per-function: ["error", 200]
+      complexity: ["error", 20]
+      class-methods-use-this: 0
+      arrow-parens: ["error", "always"]
+      require-await: ["error"]
+      import/no-unresolved: error
+      import/extensions: ["error", { "js": "never", "ts": "never", "jsx": "never", "tsx": "never" }]
+      no-param-reassign: 0
+      no-plusplus: 0
+      lines-between-class-members: ["error", "always", { "exceptAfterSingleLine": true }]
+      import/prefer-default-export: 0
+      no-trailing-spaces: ["error", { "skipBlankLines": true, "ignoreComments": true }]
+      camelcase: error
+      spaced-comment: error
+      no-duplicate-imports: error
+      prettier/prettier: warn
+      "@typescript-eslint/no-use-before-define": error
+      arrow-body-style: 0
+      import/no-extraneous-dependencies: ["error", { "devDependencies": ["**/vite.config*"] }]
+      jsx-a11y/click-events-have-key-events: 0
+      react/react-in-jsx-scope: 0
+      react/jsx-props-no-spreading: 0
+      react/jsx-no-useless-fragment: 0
+      react/destructuring-assignment: 0
+      react/require-default-props: ["error", { "functions": "defaultArguments" }]
+      react-hooks/exhaustive-deps: 0
+
+  #
+  # public/static JS
+  #
+  - files:
+      - "**/public/**/*.js"
+      - "**/static/**/*.js"
+    env:
+      browser: true
+      node: false
+      es6: true
+    extends:
+      - airbnb-base
+      - eslint:recommended
+      - prettier
+    plugins:
+      - prettier
+    rules:
+      semi: ["error", "always"]
+      quotes: ["error", "single", { "avoidEscape": true }]
+      max-len: ["error", { "code": 120, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreComments": true }]
+      max-classes-per-file: ["error", 5]
+      no-console: 0
+      linebreak-style: 0
+      no-underscore-dangle: ["error", { "allow": ["_id"] }]
+      max-nested-callbacks: ["error", 4]
+      max-params: ["error", 8]
+      max-depth: ["error", 5]
+      max-lines-per-function: ["error", 200]
+      complexity: ["error", 20]
+      class-methods-use-this: 0
+      arrow-parens: ["error", "always"]
+      require-await: ["error"]
+      no-param-reassign: 0
+      no-plusplus: 0
+      lines-between-class-members: ["error", "always", { "exceptAfterSingleLine": true }]
+      no-trailing-spaces: ["error", { "skipBlankLines": true, "ignoreComments": true }]
+      camelcase: error
+      spaced-comment: error
+      prettier/prettier: warn
+      arrow-body-style: 0
+      no-alert: 0
