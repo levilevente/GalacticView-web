@@ -1,8 +1,8 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import Home from './pages/Home'
 import NavigationBar from './components/NavigationBar.tsx';
-import Rover from './pages/Rover.tsx';
 import BlogPost from './pages/BlogPost.tsx';
+import EpicData from './pages/EpicData.tsx';
 
 function Root() {
     return (
@@ -12,7 +12,7 @@ function Root() {
                 <NavigationBar/>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/rover" element={<Rover/>} />
+                    <Route path="/epicdata" element={<EpicData/>} />
                     <Route path="/blogpost" element={<BlogPost/>} />
                 </Routes>
             </BrowserRouter>

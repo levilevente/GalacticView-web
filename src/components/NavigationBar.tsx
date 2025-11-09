@@ -33,7 +33,7 @@ function NavigationBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto" style={navStyle}>
-                        <Nav.Link href="/rover">Rover</Nav.Link>
+                        <Nav.Link href="/epicdata">EpicData</Nav.Link>
                         <Nav.Link href="/blogpost">Blogpost</Nav.Link>
                         {/*
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
