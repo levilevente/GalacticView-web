@@ -14,6 +14,7 @@ function Root() {
                     <Route path="/" element={<Home />} />
                     <Route path="/epicdata" element={<EpicData/>} />
                     <Route path="/blogpost" element={<BlogPost/>} />
+                    <Route path="/epicdata/:epicdatadate"/>
                 </Routes>
             </BrowserRouter>
         </div>

@@ -1,18 +1,27 @@
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
+import { useNasaEpicDataByDate } from '../../query/nasaEpicData.query.ts';
+import type { NasaEpicDataType } from '../../data/NasaEpicDataTypes.ts';
 
-function EpicDataCard() {
+interface epicDataCardProps {
+    date: string;
+}
+
+function EpicDataCard(props: epicDataCardProps) {
+    const { date } = props;
+    const { data: dataOnDate = [] as NasaEpicDataType[] } = useNasaEpicDataByDate(date);
 
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                <Card.Title>Imgages taken on date {date}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                    {dataOnDate[0]?.caption}
+                </Card.Subtitle>
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
+                    {dataOnDate.length} items for date {date}
                 </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                <Button variant="success" href={`/epicdata/${date}`}>See more</Button>
+
             </Card.Body>
         </Card>
     );
