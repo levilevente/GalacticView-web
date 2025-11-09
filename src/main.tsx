@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App.tsx';
+import Root from './Root.tsx';
 
 const root = document.getElementById('root');
 
@@ -9,5 +9,5 @@ if (!root) {
 }
 
 createRoot(root).render(
-        <App />
+        <Root />
 );
