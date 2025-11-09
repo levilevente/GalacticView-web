@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import type { NasaEpicDataTypesForDates } from '../data/NasaEpicDataTypes.ts';
 
 export function usePagination(data: NasaEpicDataTypesForDates[], itemsPerPage = 10) {
-
     const [currentPage, setCurrentPage] = useState(() => {
         return Number(localStorage.getItem("epicDataCurrentPage")) || 1;
     });
@@ -18,10 +17,21 @@ export function usePagination(data: NasaEpicDataTypesForDates[], itemsPerPage = 
         return data.slice(start, start + itemsPerPage);
     }, [data, currentPage, itemsPerPage]);
 
+    const goToPage = (page: number) => {
+        if (page < 1) {
+            setCurrentPage(1);
+        } else if (page > totalPages) {
+            setCurrentPage(totalPages);
+        } else {
+            setCurrentPage(page);
+        }
+    }
+
     return {
         currentPage,
-        setCurrentPage,
+        goToPage,
         totalPages,
-        paginationData
+        paginationData,
+        itemsPerPage
     }
 }

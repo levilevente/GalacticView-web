@@ -1,6 +1,4 @@
 import Pagination from 'react-bootstrap/Pagination';
-import { usePagination } from '../hooks/usePagination.ts';
-import { useNasaEpicDataDates } from '../query/nasaEpicData.query.ts';
 import React from 'react';
 
 const paginationStyle: React.CSSProperties = {
@@ -16,23 +14,28 @@ const paginationStyle: React.CSSProperties = {
     textAlign: 'center',
 }
 
-function PaginationEpic() {
-    const { data: dates = [] } = useNasaEpicDataDates();
-    const {currentPage, setCurrentPage, totalPages} = usePagination(dates, 10);
+interface PaginationProps {
+    currentPage: number;
+    totalPages: number;
+    goToPage: (page: number) => void;
+}
+
+function PaginationEpic(props: PaginationProps) {
+    const {currentPage, goToPage, totalPages} = props;
     const {start, end} = getRangeArray(currentPage, totalPages);
 
     return (
         <Pagination style={paginationStyle}>
             {}
-            <Pagination.First onClick={() => {setCurrentPage(1)}} />
-            <Pagination.Prev onClick={() => {setCurrentPage(currentPage - 1)}}/>
+            <Pagination.First onClick={() => {goToPage(1)}} />
+            <Pagination.Prev onClick={() => {goToPage(currentPage - 1)}}/>
             {Array.from({length: end - start + 1}, (_, index) => {
                 const pageNumber = start + index;
                 return (
                     <Pagination.Item
                         key={pageNumber}
                         active={pageNumber === currentPage}
-                        onClick={() => {setCurrentPage(pageNumber)}}
+                        onClick={() => {goToPage(pageNumber)}}
                         disabled={pageNumber === currentPage}
                     >
                         {pageNumber}
@@ -40,8 +43,8 @@ function PaginationEpic() {
                 );
             }
             )}
-            <Pagination.Next onClick={() => {setCurrentPage(currentPage + 1)}}/>
-            <Pagination.Last onClick={() => {setCurrentPage(totalPages )}}/>
+            <Pagination.Next onClick={() => {goToPage(currentPage + 1)}}/>
+            <Pagination.Last onClick={() => {goToPage(totalPages )}}/>
         </Pagination>
     );
 }
