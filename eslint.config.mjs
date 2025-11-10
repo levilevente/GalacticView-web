@@ -1,20 +1,29 @@
-import eslint from '@eslint/js';
-import { defineConfig } from 'eslint/config';
-import tseslint from 'typescript-eslint';
+// eslint.config.mjs
+import { defineConfig, globalIgnores } from 'eslint/config';
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
+import tsParser from '@typescript-eslint/parser';
 
 export default defineConfig([
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended, // Spread the recommended TS configs
-
-  // Add a new configuration object for custom rules
-  {
-    rules: {
-      // Enforce a maximum of 120 lines in a function
-      "max-lines-per-function": ["error", {
-        "max": 120,
-        "skipBlankLines": true, // Optional: ignore blank lines
-        "skipComments": true     // Optional: ignore comment lines
-      }]
-    }
-  }
+    globalIgnores(['dist']),
+    {
+        files: ['**/*.{ts,tsx}'],
+        languageOptions: {
+            parser: tsParser,
+            parserOptions: {
+                project: ['./tsconfig.app.json', './tsconfig.node.json'],
+                tsconfigRootDir: new URL('.', import.meta.url).pathname,
+                ecmaVersion: 2022,
+                sourceType: 'module',
+                ecmaFeatures: { jsx: true },
+            },
+        },
+        extends: [
+            reactX.configs['recommended-typescript'],
+            reactDom.configs.recommended,
+        ],
+        rules: {
+            'max-lines-per-function': ['error', { max: 120, skipBlankLines: true, skipComments: true }],
+        },
+    },
 ]);

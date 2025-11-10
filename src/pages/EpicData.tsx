@@ -23,8 +23,8 @@ function EpicData() {
 
     return (
         <div style={epicDataStyle}>
-            {epicDataDates.map((dateStr, key) => (
-                <EpicDataCard date={dateStr} key={key} />
+            {epicDataDates.map((dateStr) => (
+                <EpicDataCard date={dateStr} key={dateStr} />
             ))}
             <PaginationEpic goToPage={goToPage} totalPages={totalPages} currentPage={currentPage} />
         </div>
