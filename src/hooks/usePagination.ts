@@ -3,11 +3,11 @@ import type { NasaEpicDataTypesForDates } from '../data/NasaEpicDataTypes.ts';
 
 export function usePagination(data: NasaEpicDataTypesForDates[], itemsPerPage = 10) {
     const [currentPage, setCurrentPage] = useState(() => {
-        return Number(localStorage.getItem("epicDataCurrentPage")) || 1;
+        return Number(localStorage.getItem('epicDataCurrentPage')) || 1;
     });
 
     useEffect(() => {
-        localStorage.setItem("epicDataCurrentPage", String(currentPage));
+        localStorage.setItem('epicDataCurrentPage', String(currentPage));
     }, [currentPage]);
 
     const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -25,13 +25,13 @@ export function usePagination(data: NasaEpicDataTypesForDates[], itemsPerPage = 
         } else {
             setCurrentPage(page);
         }
-    }
+    };
 
     return {
         currentPage,
         goToPage,
         totalPages,
         paginationData,
-        itemsPerPage
-    }
+        itemsPerPage,
+    };
 }

@@ -13,5 +13,5 @@ if (!root) {
 createRoot(root).render(
     <QueryClientProvider client={queryClient}>
         <Root />
-    </QueryClientProvider>
+    </QueryClientProvider>,
 );

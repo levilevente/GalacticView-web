@@ -5,20 +5,20 @@ import { queryClient } from './common.query.ts';
 export function useNasaEpicDataDates() {
     const query = useQuery({
         queryKey: ['nasaEpicData'],
-        queryFn: getNasaEpicDataAllDates
+        queryFn: getNasaEpicDataAllDates,
     });
 
     const refetchWithInvalidation = async () => {
-        await queryClient.invalidateQueries({queryKey: ['nasaEpicData']});
+        await queryClient.invalidateQueries({ queryKey: ['nasaEpicData'] });
         return query.refetch();
-    }
+    };
 
-    return {...query, refetchWithInvalidation};
+    return { ...query, refetchWithInvalidation };
 }
 
 export function useNasaEpicDataByDate(date: string) {
     return useQuery({
         queryKey: ['nasaEpicData', date],
-        queryFn: () => getNasaEpicDataByDate(date)
+        queryFn: () => getNasaEpicDataByDate(date),
     });
 }

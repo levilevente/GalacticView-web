@@ -20,7 +20,7 @@ const navStyle = {
 const titleStyle = {
     fontWeight: 'bold',
     fontSize: '24px',
-}
+};
 
 function NavigationBar() {
     return (

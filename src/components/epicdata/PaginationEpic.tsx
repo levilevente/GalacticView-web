@@ -14,7 +14,7 @@ const paginationStyle: React.CSSProperties = {
     transform: 'translateX(-50%)',
     textAlign: 'center',
     */
-}
+};
 
 interface PaginationProps {
     currentPage: number;
@@ -23,38 +23,55 @@ interface PaginationProps {
 }
 
 function PaginationEpic(props: PaginationProps) {
-    const {currentPage, goToPage, totalPages} = props;
-    const {start, end} = getRangeArray(currentPage, totalPages);
+    const { currentPage, goToPage, totalPages } = props;
+    const { start, end } = getRangeArray(currentPage, totalPages);
 
     return (
         <Pagination style={paginationStyle}>
             {}
-            <Pagination.First onClick={() => {goToPage(1)}} />
-            <Pagination.Prev onClick={() => {goToPage(currentPage - 1)}}/>
-            {Array.from({length: end - start + 1}, (_, index) => {
+            <Pagination.First
+                onClick={() => {
+                    goToPage(1);
+                }}
+            />
+            <Pagination.Prev
+                onClick={() => {
+                    goToPage(currentPage - 1);
+                }}
+            />
+            {Array.from({ length: end - start + 1 }, (_, index) => {
                 const pageNumber = start + index;
                 return (
                     <Pagination.Item
                         key={pageNumber}
                         active={pageNumber === currentPage}
-                        onClick={() => {goToPage(pageNumber)}}
+                        onClick={() => {
+                            goToPage(pageNumber);
+                        }}
                         disabled={pageNumber === currentPage}
                     >
                         {pageNumber}
                     </Pagination.Item>
                 );
-            }
-            )}
-            <Pagination.Next onClick={() => {goToPage(currentPage + 1)}}/>
-            <Pagination.Last onClick={() => {goToPage(totalPages )}}/>
+            })}
+            <Pagination.Next
+                onClick={() => {
+                    goToPage(currentPage + 1);
+                }}
+            />
+            <Pagination.Last
+                onClick={() => {
+                    goToPage(totalPages);
+                }}
+            />
         </Pagination>
     );
 }
 
 type RangeType = {
-    start: number,
-    end: number
-}
+    start: number;
+    end: number;
+};
 
 function getRangeArray(currentPage: number, totalPages: number): RangeType {
     let start = currentPage - 3;
@@ -70,8 +87,7 @@ function getRangeArray(currentPage: number, totalPages: number): RangeType {
         start = Math.max(1, totalPages - 6);
     }
 
-    return {start, end};
+    return { start, end };
 }
-
 
 export default PaginationEpic;

@@ -3,9 +3,7 @@ function Home() {
         <div>
             <h2>Welcome to GalacticView</h2>
             <p>Your gateway to the stars.</p>
-            <div>
-
-            </div>
+            <div></div>
         </div>
     );
 }

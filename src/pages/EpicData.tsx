@@ -18,7 +18,7 @@ function EpicData() {
 
     const epicDataDates = useMemo(() => {
         const start = (currentPage - 1) * itemsPerPage;
-        return dates.slice(start, start + itemsPerPage).map(d => d.date);
+        return dates.slice(start, start + itemsPerPage).map((d) => d.date);
     }, [dates, currentPage, itemsPerPage]);
 
     return (

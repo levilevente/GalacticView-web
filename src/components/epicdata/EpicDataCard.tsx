@@ -14,14 +14,13 @@ function EpicDataCard(props: epicDataCardProps) {
         <Card style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>Imgages taken on date {date}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                    {dataOnDate[0]?.caption}
-                </Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">{dataOnDate[0]?.caption}</Card.Subtitle>
                 <Card.Text>
                     {dataOnDate.length} items for date {date}
                 </Card.Text>
-                <Button variant="success" href={`/epicdata/${date}`}>See more</Button>
-
+                <Button variant="success" href={`/epicdata/${date}`}>
+                    See more
+                </Button>
             </Card.Body>
         </Card>
     );
