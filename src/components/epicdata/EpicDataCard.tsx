@@ -1,19 +1,21 @@
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Spinner } from 'react-bootstrap';
 import { useNasaEpicDataByDate } from '../../query/nasaEpicData.query.ts';
 import type { NasaEpicDataType } from '../../data/NasaEpicDataTypes.ts';
 
 interface epicDataCardProps {
     date: string;
+    isLoading?: boolean;
 }
 
 function EpicDataCard(props: epicDataCardProps) {
-    const { date } = props;
+    const { date, isLoading } = props;
     const { data: dataOnDate = [] as NasaEpicDataType[] } = useNasaEpicDataByDate(date);
 
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
-                <Card.Title>Imgages taken on date {date}</Card.Title>
+                {isLoading && <Spinner animation="border" />}
+                <Card.Title>Images taken on date {date}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{dataOnDate[0]?.caption}</Card.Subtitle>
                 <Card.Text>
                     {dataOnDate.length} items for date {date}

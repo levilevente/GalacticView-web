@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import NavigationBar from './components/NavigationBar.tsx';
 import BlogPost from './pages/BlogPost.tsx';
 import EpicData from './pages/EpicData.tsx';
+import EpicDataPost from './pages/EpicDataPost.tsx';
 
 function Root() {
     return (
@@ -14,7 +15,7 @@ function Root() {
                     <Route path="/" element={<Home />} />
                     <Route path="/epicdata" element={<EpicData />} />
                     <Route path="/blogpost" element={<BlogPost />} />
-                    <Route path="/epicdata/:epicdatadate" />
+                    <Route path="/epicdata/:epicDataDate" element={<EpicDataPost/>} />
                 </Routes>
             </BrowserRouter>
         </div>
