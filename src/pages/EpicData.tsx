@@ -13,7 +13,7 @@ const epicDataStyle: React.CSSProperties = {
 };
 
 function EpicData() {
-    const { data: dates = [] } = useNasaEpicDataDates();
+    const { data: dates = [], isLoading } = useNasaEpicDataDates();
     const { currentPage, itemsPerPage, goToPage, totalPages } = usePagination(dates);
 
     const epicDataDates = useMemo(() => {
@@ -24,7 +24,7 @@ function EpicData() {
     return (
         <div style={epicDataStyle}>
             {epicDataDates.map((dateStr) => (
-                <EpicDataCard date={dateStr} key={dateStr} />
+                <EpicDataCard key={dateStr} date={dateStr} isLoading={isLoading} />
             ))}
             <PaginationEpic goToPage={goToPage} totalPages={totalPages} currentPage={currentPage} />
         </div>
