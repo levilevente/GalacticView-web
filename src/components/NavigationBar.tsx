@@ -1,41 +1,70 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
+import React from 'react';
+import { Form } from 'react-bootstrap';
 
 const logoStyle = {
     width: '40px',
     height: '40px',
 };
 
+const navFormStyle: React.CSSProperties = {
+    marginRight: 'auto',
+    maxWidth: '200px',
+    width: '100%',
+}
+
+const brandCentered: React.CSSProperties = {
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    zIndex: 1,
+};
+
 const navStyle = {
-    //the links to be on the right side
+    marginLeft: 'auto',
     justifyContent: 'flex-end',
     width: '100%',
-    // space between links
-    gap: '55px',
+    gap: '1rem',
 };
 
-const titleStyle = {
-    fontWeight: 'bold',
-    fontSize: '24px',
+const navbarStyle: React.CSSProperties = {
+    position: 'relative',
+    height: '90px',
+    backgroundColor: '#000',
+    color: '#fff',
 };
 
+const navLinkStyle: React.CSSProperties = {
+    color: '#fff',
+    fontSize: '18px',
+    fontWeight: '500',
+    padding: '1rem',
+    fontStyle: 'bold',
+};
 
 function NavigationBar() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" data-bs-theme="dark" style={navbarStyle}>
             <Container>
-                <Navbar.Brand href="/">
-                    <Image src="/public/logo/logo-dark.png" alt="Logo" style={logoStyle} />
+                <Form className="d-flex" style={navFormStyle}>
+                    <Form.Control
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                    />
+                </Form>
+                <Navbar.Brand href="/" style={brandCentered}>
+                    <Image src="/logo/logo-light.png" alt="Logo" style={logoStyle} />
                 </Navbar.Brand>
-                <h1 style={titleStyle}>GalacticView</h1>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto" style={navStyle}>
-                        <Nav.Link href="/epicdata">EpicData</Nav.Link>
-                        <Nav.Link href="/blogpost">Blogpost</Nav.Link>
+                        <Nav.Link href="/epicdata" style={navLinkStyle}>EpicData</Nav.Link>
+                        <Nav.Link href="/blogpost" style={navLinkStyle}>Blogpost</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
