@@ -64,6 +64,7 @@ function NavigationBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto" style={navStyle}>
                         <Nav.Link href="/epicdata" style={navLinkStyle}>EpicData</Nav.Link>
+                        <Nav.Link href="/imageoftheday" style={navLinkStyle}>Image of the Day</Nav.Link>
                         <Nav.Link href="/blogpost" style={navLinkStyle}>Blogpost</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

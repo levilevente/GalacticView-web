@@ -28,8 +28,13 @@ const imageStyles: React.CSSProperties = {
     objectFit: 'contain',
 }
 
-function ImageOfTheDay() {
-    const { data } = useNasaApodData() as { data: NasaApodDataType };
+interface ImageOfTheDayProps {
+    data?: NasaApodDataType;
+}
+
+function ImageOfTheDay(props: ImageOfTheDayProps) {
+    const { data: queryData } = useNasaApodData();
+    const data = props.data || queryData;
 
     return (
         <div style={imageOfTheDayStyles} className="imageOfTheDay">
@@ -55,7 +60,6 @@ function ImageOfTheDay() {
                     <p>Media type not supported.</p>
                 )}
             </div>
-
         </div>
     );
 }

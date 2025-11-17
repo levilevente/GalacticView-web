@@ -29,7 +29,7 @@ const centerStyle: CSSProperties = {
     padding: '20px',
 }
 
-function EpicDataPost() {
+function EpicDataPostPage() {
     const { epicDataDate } = useParams<{ epicDataDate: string }>();
     const { data, isLoading, isError, error } = useNasaEpicDataByDate(epicDataDate || '');
 
@@ -57,4 +57,4 @@ function EpicDataPost() {
     );
 }
 
-export default EpicDataPost;
+export default EpicDataPostPage;

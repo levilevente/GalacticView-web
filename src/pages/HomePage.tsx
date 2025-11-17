@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageOfTheDay from '../components/home/ImageOfTheDay.tsx';
+import ImageOfTheDayContainer from '../components/imageoftheday/ImageOfTheDayContainer.tsx';
 
 const dateStyle: React.CSSProperties = {
     fontSize: '22px',
@@ -34,7 +34,7 @@ function getDayName(dayIndex: number): string {
     return dayNames[dayIndex];
 }
 
-function Home() {
+function HomePage() {
     let date = new Date();
 
     return (
@@ -42,10 +42,10 @@ function Home() {
             <p style={dateStyle}>LIVE {getDayName(date.getDay())}, {getMonthName(date.getMonth())} {date.getDate()}, {date.getHours()}:{date.getMinutes()}, {date.getTimezoneOffset()} UTC</p>
             <div style={lineStyle}></div>
             <div>
-                <ImageOfTheDay />
+                <ImageOfTheDayContainer />
             </div>
         </div>
     );
 }
 
-export default Home;
+export default HomePage;
