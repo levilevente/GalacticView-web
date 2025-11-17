@@ -1,23 +1,32 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Home from './pages/Home';
+import HomePage from './pages/HomePage.tsx';
 import NavigationBar from './components/NavigationBar.tsx';
-import BlogPost from './pages/BlogPost.tsx';
-import EpicData from './pages/EpicData.tsx';
-import EpicDataPost from './pages/EpicDataPost.tsx';
+import BlogPostPage from './pages/BlogPostPage.tsx';
+import EpicDataPage from './pages/EpicDataPage.tsx';
+import EpicDataPostPage from './pages/EpicDataPostPage.tsx';
+import FooterBar from './components/FooterBar.tsx';
+import './App.css';
+import ImageOfTheDayPage from './pages/ImageOfTheDayPage.tsx';
 
 function Root() {
     return (
         <div className="App">
-            <BrowserRouter>
-                {/* Wrap the application in BrowserRouter, ensures client-side routing works */}
-                <NavigationBar />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/epicdata" element={<EpicData />} />
-                    <Route path="/blogpost" element={<BlogPost />} />
-                    <Route path="/epicdata/:epicDataDate" element={<EpicDataPost/>} />
-                </Routes>
-            </BrowserRouter>
+            <div className="page-container">
+                <BrowserRouter>
+                    {/* wrap the application in BrowserRouter, ensures client-side routing works */}
+                    <NavigationBar />
+                    <main className="content-wrap">
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/epicdata" element={<EpicDataPage />} />
+                            <Route path="/blogpost" element={<BlogPostPage />} />
+                            <Route path="/imageoftheday" element={<ImageOfTheDayPage/>} />
+                            <Route path="/epicdata/:epicDataDate" element={<EpicDataPostPage />} />
+                        </Routes>
+                    </main>
+                    <FooterBar />
+                </BrowserRouter>
+            </div>
         </div>
     );
 }

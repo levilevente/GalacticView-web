@@ -7,13 +7,6 @@ const paginationStyle: React.CSSProperties = {
     justifyContent: 'center',
     padding: '1em 0',
     width: '100%',
-    /*
-    position: 'absolute',
-    bottom: '0',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    textAlign: 'center',
-    */
 };
 
 interface PaginationProps {
@@ -27,7 +20,7 @@ function PaginationEpic(props: PaginationProps) {
     const { start, end } = getRangeArray(currentPage, totalPages);
 
     return (
-        <Pagination style={paginationStyle}>
+        <Pagination style={paginationStyle} className={"pagination-black"}>
             {}
             <Pagination.First
                 onClick={() => {

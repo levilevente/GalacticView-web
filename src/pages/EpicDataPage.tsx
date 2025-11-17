@@ -5,6 +5,7 @@ import React, { useMemo } from 'react';
 import EpicDataCard from '../components/epicdata/EpicDataCard.tsx';
 
 const epicDataStyle: React.CSSProperties = {
+    marginTop: '50px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
@@ -12,7 +13,7 @@ const epicDataStyle: React.CSSProperties = {
     padding: '20px',
 };
 
-function EpicData() {
+function EpicDataPage() {
     const { data: dates = [], isLoading } = useNasaEpicDataDates();
     const { currentPage, itemsPerPage, goToPage, totalPages } = usePagination(dates);
 
@@ -31,4 +32,4 @@ function EpicData() {
     );
 }
 
-export default EpicData;
+export default EpicDataPage;
