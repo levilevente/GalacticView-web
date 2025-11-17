@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.page-container {
+    min-height: 100vh; /* full height */
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrap {
+    flex: 1; /* pushes footer down */
+}
