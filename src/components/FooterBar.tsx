@@ -35,7 +35,7 @@ function FooterBar() {
                 <img src="/logo/logo-light.png" alt="App Logo" style={{ width: '30px', height: '30px', marginRight: '10px', marginBottom: '10px' }} />
                 <h1>GalacticView </h1>
                 <p>GalacticView is build for space enthusiasts by space enthusiasts. Explore the wonders of the universe with us! You can create blog posts, share your favorite images, and stay updated with the latest space news.</p>
-                <p>© 2024 GalacticView. All rights reserved.</p>
+                <p>© 2025 GalacticView. All rights reserved.</p>
             </div>
             <div style={secondDivStyle}>
                 <div>

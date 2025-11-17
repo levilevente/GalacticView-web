@@ -5,6 +5,7 @@ import React, { useMemo } from 'react';
 import EpicDataCard from '../components/epicdata/EpicDataCard.tsx';
 
 const epicDataStyle: React.CSSProperties = {
+    marginTop: '50px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
