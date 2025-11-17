@@ -63,26 +63,25 @@ function EpicDataPostPage() {
                     {isLoading && <Spinner animation="border" />}
                     <div style={mainContainerStyle}>
                         <div style={leftContainerStyle}>
-                            <h1 style={{fontSize: 36, fontWeight: 'bold'}}>NASA's EPIC camera onboard the NOAA DSCOVR spacecraft</h1>
-                            <p style={{marginTop: '1.5rem'}}>
+                            <h2>NASA's EPIC camera onboard the NOAA DSCOVR spacecraft</h2>
+                            <p className={'paragraph-under-heading'}>
                                 The stunning "Blue Marble" images of the full, sunlit side of Earth are captured daily by the Earth Polychromatic Imaging Camera (EPIC) aboard NOAA's Deep Space Climate
                                 Observatory (DSCOVR) satellite. Positioned a million miles away, DSCOVR provides a unique, continuous view of our dynamic planet as it rotates, offering a fresh
                                 perspective on weather patterns, clouds, and natural landscapes.
                             </p>
-
-                            <h3 style={{fontSize: 24, fontWeight: 'bold', marginTop: '3rem', marginBottom: '1rem'}}>
+                            <h3>
                                 Camera and Satellite
                             </h3>
                             <p>
                                 The Earth Polychromatic Imaging Camera (EPIC) is the instrument, and it is mounted on the Deep Space Climate Observatory (DSCOVR) satellite.
                             </p>
-                            <h3 style={{fontSize: 24, fontWeight: 'bold', marginTop: '3rem', marginBottom: '1rem'}}>
+                            <h3>
                                 Location
                             </h3>
                             <p>
                                 The satellite is positioned about a million miles away, between the Earth and the sun, which allows it to capture the entire sunlit side of the planet.
                             </p>
-                            <h3 style={{fontSize: 24, fontWeight: 'bold', marginTop: '3rem', marginBottom: '1rem'}}>
+                            <h3>
                                 Image Capture
                             </h3>
                             <p>

@@ -39,9 +39,9 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
     return (
         <div style={imageOfTheDayStyles} className="imageOfTheDay">
             <div style={leftDivStyles}>
-                <p style={{fontSize: 13, fontFamily: 'monospace'}}>TODAY</p>
-                <h2 style={{fontSize: 42, fontWeight: 'bold'}}>Image of the Day</h2>
-                <h3 style={{fontSize: 24, fontWeight: 'bold', marginTop: '3.4rem', marginBottom: '1rem'}}>{data?.title}</h3>
+                <p className={'section-tagline'}>TODAY</p>
+                <h1>Image of the Day</h1>
+                <h3>{data?.title}</h3>
                 <p>{data?.explanation}</p>
             </div>
             <div style={rightDivStyles}>
