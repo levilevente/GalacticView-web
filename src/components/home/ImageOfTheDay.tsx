@@ -22,8 +22,10 @@ const rightDivStyles: React.CSSProperties = {
 }
 
 const imageStyles: React.CSSProperties = {
-    width: '40rem',
-    height: 'auto',
+    width: '100%',        // fill container width
+    height: 'auto',       // preserve aspect ratio
+    maxHeight: '30rem',   // prevents extreme vertical stretching
+    objectFit: 'contain',
 }
 
 function ImageOfTheDay() {
