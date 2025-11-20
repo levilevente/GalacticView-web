@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import { useNasaEpicDataByDate } from '../query/nasaEpicData.query.ts';
 import { Carousel, Spinner } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import styles from './EpicDataPostPage.module.css'
+import styles from './EpicDataPostPage.module.css';
 
 function imageUrl(item: any) {
     return `https://epic.gsfc.nasa.gov/archive/natural/${item.date.slice(0, 4)}/${item.date.slice(5, 7)}/${item.date.slice(8, 10)}/png/${item.image}.png`;

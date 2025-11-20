@@ -1,6 +1,6 @@
 import { useNasaApodData } from '../../query/nasaApodData.query.ts';
 import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
-import style from './ImageOfTheDay.module.css'
+import style from './ImageOfTheDay.module.css';
 
 interface ImageOfTheDayProps {
     data?: NasaApodDataType;

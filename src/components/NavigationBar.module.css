@@ -1,55 +1,6 @@
-/*
-const logoStyle = {
-    width: '40px',
-    height: '40px',
-};
-
-const navFormStyle: React.CSSProperties = {
-    marginRight: 'auto',
-    maxWidth: '200px',
-    width: '100%',
-}
-
-const brandCentered: React.CSSProperties = {
-    position: 'absolute',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    zIndex: 1,
-};
-
-const navStyle = {
-    marginLeft: 'auto',
-    justifyContent: 'flex-end',
-    width: '100%',
-    gap: '1rem',
-};
-
-const navbarStyle: React.CSSProperties = {
-    position: 'relative',
-    height: '90px',
-    backgroundColor: '#000',
-    color: '#fff',
-};
-
-const navLinkStyle: React.CSSProperties = {
-    color: '#fff',
-    fontSize: '18px',
-    fontWeight: '500',
-    padding: '1rem',
-    fontStyle: 'bold',
-};
-
- */
-
 .logoStyle {
     width: 40px;
     height: 40px;
-}
-
-.navFormStyle {
-    margin-right: auto;
-    max-width: 200px;
-    width: 100%;
 }
 
 .brandCentered {
@@ -76,7 +27,7 @@ const navLinkStyle: React.CSSProperties = {
 .navLinkStyle {
     color: #fff;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: bold;
     padding: 1rem;
 }
 

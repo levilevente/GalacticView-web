@@ -1,5 +1,5 @@
 import Pagination from 'react-bootstrap/Pagination';
-import style from './PaginationEpic.module.css'
+import style from './PaginationEpic.module.css';
 
 interface PaginationProps {
     currentPage: number;

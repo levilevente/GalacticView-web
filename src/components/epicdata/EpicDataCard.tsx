@@ -1,7 +1,7 @@
 import { Button, Card, Spinner } from 'react-bootstrap';
 import { useNasaEpicDataByDate } from '../../query/nasaEpicData.query.ts';
 import type { NasaEpicDataType } from '../../data/NasaEpicDataTypes.ts';
-import style from './EpicDataCard.module.css'
+import style from './EpicDataCard.module.css';
 
 interface epicDataCardProps {
     date: string;

@@ -1,4 +1,4 @@
-import styles from './FooterBar.module.css'
+import styles from './FooterBar.module.css';
 
 function FooterBar() {
     return (
