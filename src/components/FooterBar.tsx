@@ -4,7 +4,7 @@ function FooterBar() {
     return (
         <footer className={styles.footerBar}>
             <div className={styles.firstDiv}>
-                <img src="/logo/logo-light.png" alt="App Logo" style={{ width: '30px', height: '30px', marginRight: '10px', marginBottom: '10px' }} />
+                <img src="/logo/logo-light.png" alt="App Logo" className={styles.logo} />
                 <h1>GalacticView </h1>
                 <p>GalacticView is build for space enthusiasts by space enthusiasts. Explore the wonders of the universe with us! You can create blog posts, share your favorite images, and stay updated with the latest space news.</p>
                 <p>© 2025 GalacticView. All rights reserved.</p>

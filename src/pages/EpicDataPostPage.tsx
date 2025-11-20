@@ -51,7 +51,7 @@ function EpicDataPostPage() {
                                 {data.map((item: any) => (
                                     <Carousel.Item key={item.identifier}>
                                         <Image rounded src={imageUrl(item)} alt="epic" className={styles.image} />
-                                        <Carousel.Caption style={{ bottom: '-1.0rem' }}>
+                                        <Carousel.Caption className={styles.carouselCaption}>
                                             <p>{item.date}</p>
                                         </Carousel.Caption>
                                     </Carousel.Item>

@@ -43,3 +43,7 @@
 .paragraphUnderHeading {
     margin-top: 1.5rem;
 }
+
+.carouselCaption {
+    bottom: -1.0rem;
+}

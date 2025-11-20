@@ -13,7 +13,7 @@ function EpicDataCard(props: epicDataCardProps) {
     const { data: dataOnDate = [] as NasaEpicDataType[] } = useNasaEpicDataByDate(date);
 
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card className={style.card}>
             <Card.Body className={style.epicDataCardBody}>
                 {isLoading && <Spinner animation="border" />}
                 <Card.Title>Images taken: {date}</Card.Title>
