@@ -21,38 +21,37 @@ export default defineConfig([
                 ecmaFeatures: { jsx: true },
             },
         },
-        // Define plugins here so they are available to rules below
+        // define plugins here so they are available to rules below
         plugins: {
             'react': reactPlugin,
             'react-hooks': reactHooks,
             'simple-import-sort': simpleImportSort,
         },
-        // Use recommended configs
+        // use recommended configs
         extends: [
             tseslint.configs.recommendedTypeChecked,
             tseslint.configs.stylisticTypeChecked,
-            reactPlugin.configs.flat.recommended, // This is the new Flat Config way for React
+            reactPlugin.configs.flat.recommended, // this is the new Flat Config way for React
             jsxA11y.flatConfigs.recommended,
         ],
         settings: {
             react: {
-                version: 'detect', // Automatically detect React version
+                version: 'detect', // automatically detect React version
             },
         },
         rules: {
             // --- 1. React Best Practices ---
 
-            // Enforce Rules of Hooks
+            // enforce Rules of Hooks
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'warn',
 
-            // Now this rule will work because 'react' plugin is defined
             'react/jsx-no-leaked-render': ['error', { validStrategies: ['ternary'] }],
 
             'react/jsx-boolean-value': ['error', 'never'],
             'react/self-closing-comp': ['error', { component: true, html: true }],
             'react/jsx-fragments': ['error', 'syntax'],
-            'react/react-in-jsx-scope': 'off', // Not needed in React 17+
+            'react/react-in-jsx-scope': 'off', // not needed in React 17+
 
 
             // --- 2. TypeScript Best Practices ---
