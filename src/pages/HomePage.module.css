@@ -1,0 +1,16 @@
+.date {
+    font-size: 22px;
+    color: #000;
+    font-weight: bold;
+    margin-left: 10rem;
+    margin-top: 40px;
+}
+
+.line {
+    width: 87rem;
+    height: 20px;
+    border-bottom: 1px solid #939393;
+    position: absolute;
+    margin-left: 10rem;
+    margin-top: 0;
+}

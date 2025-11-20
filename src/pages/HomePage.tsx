@@ -1,22 +1,5 @@
-import React from 'react';
 import ImageOfTheDayContainer from '../components/imageoftheday/ImageOfTheDayContainer.tsx';
-
-const dateStyle: React.CSSProperties = {
-    fontSize: '22px',
-    color: '#000',
-    fontWeight: 'bold',
-    marginLeft: '10rem',
-    marginTop: '40px',
-};
-
-const lineStyle: React.CSSProperties = {
-    width: '87rem',
-    height: '20px',
-    borderBottom: '1px solid #939393',
-    position: 'absolute',
-    marginLeft: '10rem',
-    marginTop: '0px',
-};
+import style from './HomePage.module.css';
 
 function getMonthName(monthIndex: number): string {
     const monthNames = [
@@ -39,8 +22,8 @@ function HomePage() {
 
     return (
         <div>
-            <p style={dateStyle}>LIVE {getDayName(date.getDay())}, {getMonthName(date.getMonth())} {date.getDate()}, {date.getHours()}:{date.getMinutes()}, {date.getTimezoneOffset()} UTC</p>
-            <div style={lineStyle}></div>
+            <p className={style.date}>LIVE {getDayName(date.getDay())}, {getMonthName(date.getMonth())} {date.getDate()}, {date.getHours()}:{date.getMinutes()}, {date.getTimezoneOffset()} UTC</p>
+            <div className={style.line}></div>
             <div>
                 <ImageOfTheDayContainer />
             </div>

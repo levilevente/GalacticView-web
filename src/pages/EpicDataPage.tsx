@@ -1,17 +1,9 @@
 import PaginationEpic from '../components/epicdata/PaginationEpic.tsx';
 import { usePagination } from '../hooks/usePagination.ts';
 import { useNasaEpicDataDates } from '../query/nasaEpicData.query.ts';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import EpicDataCard from '../components/epicdata/EpicDataCard.tsx';
-
-const epicDataStyle: React.CSSProperties = {
-    marginTop: '50px',
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: '20px',
-    padding: '20px',
-};
+import style from './EpicDataPage.module.css';
 
 function EpicDataPage() {
     const { data: dates = [], isLoading } = useNasaEpicDataDates();
@@ -23,7 +15,7 @@ function EpicDataPage() {
     }, [dates, currentPage, itemsPerPage]);
 
     return (
-        <div style={epicDataStyle}>
+        <div className={style.epicDataContainer}>
             {epicDataDates.map((dateStr) => (
                 <EpicDataCard key={dateStr} date={dateStr} isLoading={isLoading} />
             ))}

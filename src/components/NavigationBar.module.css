@@ -1,0 +1,38 @@
+.logoStyle {
+    width: 40px;
+    height: 40px;
+}
+
+.brandCentered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.navStyle {
+    margin-left: auto;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 1rem;
+}
+
+.navbarStyle {
+    position: relative;
+    height: 90px;
+    background-color: #000;
+    color: #fff;
+}
+
+.navLinkStyle {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 1rem;
+}
+
+.searchForm {
+    margin-right: auto;
+    max-width: 200px;
+    width: 100%;
+}
