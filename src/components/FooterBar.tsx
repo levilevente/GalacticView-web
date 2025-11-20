@@ -6,7 +6,7 @@ function FooterBar() {
             <div className={styles.firstDiv}>
                 <img src="/logo/logo-light.png" alt="App Logo" className={styles.logo} />
                 <h1>GalacticView </h1>
-                <p>GalacticView is build for space enthusiasts by space enthusiasts. Explore the wonders of the universe with us! You can create blog posts, share your favorite images, and stay updated with the latest space news.</p>
+                <p>GalacticView is built for space enthusiasts by space enthusiasts. Explore the wonders of the universe with us! You can create blog posts, share your favorite images, and stay updated with the latest space news.</p>
                 <p>© 2025 GalacticView. All rights reserved.</p>
             </div>
             <div className={styles.secondDiv}>

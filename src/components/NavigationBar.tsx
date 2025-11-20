@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import { Form } from 'react-bootstrap';
-import style from './NavigationBar.module.css'
+import style from './NavigationBar.module.css';
 
 function NavigationBar() {
     return (
