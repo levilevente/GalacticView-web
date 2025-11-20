@@ -1,0 +1,27 @@
+.footerBar {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    justify-content: space-between;
+}
+
+.firstDiv {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    text-align: left;
+    width: 40rem;
+}
+
+.secondDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    margin-right: 10rem;
+    text-align: left;
+}
