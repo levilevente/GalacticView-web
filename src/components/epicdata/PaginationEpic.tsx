@@ -1,4 +1,5 @@
 import Pagination from 'react-bootstrap/Pagination';
+
 import style from './PaginationEpic.module.css';
 
 interface PaginationProps {
@@ -53,10 +54,10 @@ function PaginationEpic(props: PaginationProps) {
     );
 }
 
-type RangeType = {
+interface RangeType {
     start: number;
     end: number;
-};
+}
 
 function getRangeArray(currentPage: number, totalPages: number): RangeType {
     let start = currentPage - 3;
