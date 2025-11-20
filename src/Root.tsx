@@ -1,11 +1,13 @@
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import HomePage from './pages/HomePage.tsx';
+import './App.css';
+
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
+
+import FooterBar from './components/FooterBar.tsx';
 import NavigationBar from './components/NavigationBar.tsx';
 import BlogPostPage from './pages/BlogPostPage.tsx';
 import EpicDataPage from './pages/EpicDataPage.tsx';
 import EpicDataPostPage from './pages/EpicDataPostPage.tsx';
-import FooterBar from './components/FooterBar.tsx';
-import './App.css';
+import HomePage from './pages/HomePage.tsx';
 import ImageOfTheDayPage from './pages/ImageOfTheDayPage.tsx';
 
 function Root() {

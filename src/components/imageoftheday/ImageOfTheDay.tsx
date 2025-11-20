@@ -1,5 +1,5 @@
-import { useNasaApodData } from '../../query/nasaApodData.query.ts';
 import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
+import { useNasaApodData } from '../../query/nasaApodData.query.ts';
 import style from './ImageOfTheDay.module.css';
 
 interface ImageOfTheDayProps {
@@ -8,7 +8,7 @@ interface ImageOfTheDayProps {
 
 function ImageOfTheDay(props: ImageOfTheDayProps) {
     const { data: queryData } = useNasaApodData();
-    const data = props.data || queryData;
+    const data = props.data ?? queryData;
 
     return (
         <div className={`imageOfTheDay ${style.imageOfTheDayContainer}`}>
@@ -29,7 +29,7 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
                         title={data?.title}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
-                    ></iframe>
+                     />
                 ) : (
                     <p>Media type not supported.</p>
                 )}

@@ -1,8 +1,9 @@
+import { Form } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Image from 'react-bootstrap/Image';
-import { Form } from 'react-bootstrap';
+
 import style from './NavigationBar.module.css';
 
 function NavigationBar() {

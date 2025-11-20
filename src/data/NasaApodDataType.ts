@@ -1,4 +1,4 @@
-export type NasaApodDataType = {
+export interface NasaApodDataType {
     date: string;
     explanation: string;
     hdurl: string;

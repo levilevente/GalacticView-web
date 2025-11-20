@@ -1,8 +1,9 @@
+import { useMemo } from 'react';
+
+import EpicDataCard from '../components/epicdata/EpicDataCard.tsx';
 import PaginationEpic from '../components/epicdata/PaginationEpic.tsx';
 import { usePagination } from '../hooks/usePagination.ts';
 import { useNasaEpicDataDates } from '../query/nasaEpicData.query.ts';
-import { useMemo } from 'react';
-import EpicDataCard from '../components/epicdata/EpicDataCard.tsx';
 import style from './EpicDataPage.module.css';
 
 function EpicDataPage() {

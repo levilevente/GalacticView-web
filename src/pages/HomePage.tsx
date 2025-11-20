@@ -18,12 +18,12 @@ function getDayName(dayIndex: number): string {
 }
 
 function HomePage() {
-    let date = new Date();
+    const date = new Date();
 
     return (
         <div>
             <p className={style.date}>LIVE {getDayName(date.getDay())}, {getMonthName(date.getMonth())} {date.getDate()}, {date.getHours()}:{date.getMinutes()}, {date.getTimezoneOffset()} UTC</p>
-            <div className={style.line}></div>
+            <div className={style.line} />
             <div>
                 <ImageOfTheDayContainer />
             </div>
