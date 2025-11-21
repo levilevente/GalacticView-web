@@ -1,6 +1,6 @@
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import DatePicker from 'react-datepicker';
@@ -14,8 +14,9 @@ interface Props {
 
 function ImageOfTheDayHistory(props: Props) {
     const { setSearchedDate } = props;
-    const todayUtc = toUTCDateOnly(new Date());
+    const todayUtc = useMemo(() => toUTCDateOnly(new Date()), []);
     const [date, setDate] = useState<Date>(todayUtc);
+    const minDate = new Date(Date.UTC(1995, 5, 16));
 
     return (
         <>
@@ -30,6 +31,7 @@ function ImageOfTheDayHistory(props: Props) {
                         className={`form-control ${style.datePicker}`}
                         dateFormat="MM/dd/yyyy"
                         maxDate={todayUtc}
+                        minDate={minDate}
                     />
                     <Button
                         className={style.datePickerButton}

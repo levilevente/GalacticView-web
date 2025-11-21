@@ -74,7 +74,7 @@ Follow these instructions to set up the project locally.
     - Create a `.env` file in the root directory.
     - Add your key:
         ```env
-        REACT_APP_NASA_API_KEY=your_key_here
+        VITE_NASA_API_KEY=your_key_here
         ```
 
 4.  **Run the Application**
