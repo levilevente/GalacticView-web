@@ -23,7 +23,7 @@ export default defineConfig([
         },
         // define plugins here so they are available to rules below
         plugins: {
-            'react': reactPlugin,
+            react: reactPlugin,
             'react-hooks': reactHooks,
             'simple-import-sort': simpleImportSort,
         },
@@ -53,7 +53,6 @@ export default defineConfig([
             'react/jsx-fragments': ['error', 'syntax'],
             'react/react-in-jsx-scope': 'off', // not needed in React 17+
 
-
             // --- 2. TypeScript Best Practices ---
             '@typescript-eslint/consistent-type-imports': [
                 'warn',
@@ -62,13 +61,12 @@ export default defineConfig([
             '@typescript-eslint/no-explicit-any': 'warn',
             '@typescript-eslint/no-floating-promises': 'error',
 
-
             // --- 3. Code Cleanliness ---
             'simple-import-sort/imports': 'error',
             'simple-import-sort/exports': 'error',
             'no-console': ['warn', { allow: ['warn', 'error'] }],
-            'eqeqeq': ['error', 'always'],
-            'semi': ['error', 'always'],
+            eqeqeq: ['error', 'always'],
+            semi: ['error', 'always'],
             'eol-last': 'off',
         },
     },

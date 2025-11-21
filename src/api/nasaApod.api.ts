@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import type { NasaApodDataType } from '../data/NasaApodDataType.ts';
 
-const API_KEY = import.meta.env.VITE_NASA_API_KEY as string ?? 'DEMO_KEY';
+const API_KEY = (import.meta.env.VITE_NASA_API_KEY as string) ?? 'DEMO_KEY';
 
 export const nasaEpicApi = axios.create({
     baseURL: `https://api.nasa.gov/planetary/apod`,
@@ -12,14 +12,14 @@ export const nasaEpicApi = axios.create({
     },
     params: {
         api_key: API_KEY,
-    }
+    },
 });
 
 export async function getNasaApodData(date?: Date | null): Promise<NasaApodDataType> {
     if (date instanceof Date) {
         const dateString = date.toISOString().split('T')[0];
         const res = await nasaEpicApi.get<NasaApodDataType>('', {
-            params: { date: dateString }
+            params: { date: dateString },
         });
         return res.data;
     }

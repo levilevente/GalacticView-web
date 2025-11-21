@@ -15,11 +15,13 @@ function ImageOfTheDayPage() {
             <div className={`line ${style.spaceBeforeLine}`} />
             <div className={style.searchedDateImageContainer}>
                 <ImageOfTheDayHistory setSearchedDate={setSearchedDate} key="today" />
-                {searchedDate ?
+                {searchedDate ? (
                     <div>
                         <ImageOfTheDayContainer date={searchedDate} key={searchedDate.toISOString()} />
-                    </div> : <></>
-                }
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
         </div>
     );
