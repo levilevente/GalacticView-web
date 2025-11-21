@@ -36,3 +36,31 @@
     max-width: 200px;
     width: 100%;
 }
+
+/* --------------------------------------------------------- */
+/*     MOBILE NAV FIX (Screen width < 992px)                 */
+/* --------------------------------------------------------- */
+@media (max-width: 992px) {
+    .brandCentered {
+        /* 1. Stop floating in the middle */
+        position: static;
+        transform: none;
+
+        /* 2. Push it slightly to adjust visual balance */
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .navbarStyle {
+        /* Allow height to grow if elements wrap */
+        height: auto;
+        min-height: 90px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .searchForm {
+        /* Optional: On really small screens, make search smaller */
+        max-width: 150px;
+    }
+}

@@ -62,3 +62,22 @@ h3 {
     font-size: 13px;
     font-family: monospace;
 }
+
+.line {
+    width: calc(100% - 20rem);
+    height: 20px;
+    border-bottom: 1px solid #939393;
+    position: absolute;
+    margin-left: 10rem;
+    margin-top: 0;
+}
+
+/* --------------------------------------------------------- */
+/*     MOBILE & TABLET FIX (Screen width < 992px)            */
+/* --------------------------------------------------------- */
+@media (max-width: 992px) {
+    .line {
+        width: calc(100% - 5.6rem);
+        margin-left: 2.8rem;
+    }
+}

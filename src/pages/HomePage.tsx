@@ -1,3 +1,5 @@
+import'../App.css';
+
 import ImageOfTheDayContainer from '../components/imageoftheday/ImageOfTheDayContainer.tsx';
 import style from './HomePage.module.css';
 
@@ -23,7 +25,7 @@ function HomePage() {
     return (
         <div>
             <p className={style.date}>LIVE {getDayName(date.getDay())}, {getMonthName(date.getMonth())} {date.getDate()}, {date.getHours()}:{date.getMinutes()}, {date.getTimezoneOffset()} UTC</p>
-            <div className={style.line} />
+            <div className={'line'} />
             <div>
                 <ImageOfTheDayContainer />
             </div>
