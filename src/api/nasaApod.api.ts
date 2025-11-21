@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import type { NasaApodDataType } from '../data/NasaApodDataType.ts';
+import { getDateTimeZoneOffsetString } from '../utils/dateUtils.ts';
 
 const API_KEY = (import.meta.env.VITE_NASA_API_KEY as string) ?? 'DEMO_KEY';
 
@@ -17,7 +18,7 @@ export const nasaEpicApi = axios.create({
 
 export async function getNasaApodData(date?: Date | null): Promise<NasaApodDataType> {
     if (date instanceof Date && !isNaN(date.getTime())) {
-        const dateString = date.toISOString().split('T')[0];
+        const dateString = getDateTimeZoneOffsetString(date);
         const res = await nasaEpicApi.get<NasaApodDataType>('', {
             params: { date: dateString },
         });

@@ -1,7 +1,6 @@
-import { useMemo } from 'react';
-
 import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
 import style from './ImageOfTheDay.module.css';
+import { getDateTimeZoneOffsetString } from '../../utils/dateUtils.ts';
 
 interface ImageOfTheDayProps {
     data?: NasaApodDataType;
@@ -9,7 +8,8 @@ interface ImageOfTheDayProps {
 
 function ImageOfTheDay(props: ImageOfTheDayProps) {
     const data = props.data;
-    const todayString = useMemo(() => new Date().toISOString().split('T')[0], []);
+    const today = new Date();
+    const todayString = getDateTimeZoneOffsetString(today);
 
     return (
         <div className={`imageOfTheDay ${style.imageOfTheDayContainer}`}>

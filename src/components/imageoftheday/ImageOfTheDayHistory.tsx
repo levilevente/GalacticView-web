@@ -27,7 +27,7 @@ function ImageOfTheDayHistory(props: Props) {
                         onChange={(d) => d && setDate(d)}
                         className={`form-control ${style.datePicker}`}
                         dateFormat="MM/dd/yyyy"
-                        maxDate={new Date()}
+                        maxDate={new Date(date)}
                     />
                     <Button
                         className={style.datePickerButton}
@@ -36,7 +36,7 @@ function ImageOfTheDayHistory(props: Props) {
                         variant="dark"
                         onClick={() => setSearchedDate(date)}
                     >
-                        Search
+                        Search for image
                     </Button>
                 </div>
             </Form.Group>
