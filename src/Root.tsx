@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import FooterBar from './components/FooterBar.tsx';
 import NavigationBar from './components/NavigationBar.tsx';
@@ -22,7 +22,7 @@ function Root() {
                             <Route path="/" element={<HomePage />} />
                             <Route path="/epicdata" element={<EpicDataPage />} />
                             <Route path="/blogpost" element={<BlogPostPage />} />
-                            <Route path="/imageoftheday" element={<ImageOfTheDayPage/>} />
+                            <Route path="/imageoftheday" element={<ImageOfTheDayPage />} />
                             <Route path="/epicdata/:epicDataDate" element={<EpicDataPostPage />} />
                         </Routes>
                     </main>

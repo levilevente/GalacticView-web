@@ -18,8 +18,30 @@
 }
 
 .image {
-    width: 100%;        /* fill container width */
-    height: auto;       /* preserve aspect ratio */
-    max-height: 30rem;  /* prevents extreme vertical stretching */
+    width: 100%; /* fill container width */
+    height: auto; /* preserve aspect ratio */
+    max-height: 30rem; /* prevents extreme vertical stretching */
     object-fit: contain;
+}
+
+/* --------------------------------------------------------- */
+/*     MOBILE & TABLET FIX (Screen width < 992px)            */
+/* --------------------------------------------------------- */
+@media (max-width: 992px) {
+    .imageOfTheDayContainer {
+        flex-direction: column;
+        margin-left: 2.8rem;
+        margin-right: 2.8rem;
+        margin-top: 2rem;
+    }
+
+    .leftDiv {
+        margin-right: 0;
+        margin-top: 2rem;
+    }
+
+    .rightDiv {
+        margin-right: 0 !important;
+        width: 100%;
+    }
 }

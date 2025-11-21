@@ -1,0 +1,25 @@
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
+}
+
+.datePickerContainer {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.datePickerButton {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.datePicker {
+    width: 20rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}

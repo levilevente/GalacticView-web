@@ -16,26 +16,29 @@
 While currently a frontend visualization tool, the project has an ambitious roadmap to evolve into a full-stack community platform with AI integration.
 
 ### 🛠 Tech Stack
-* **Framework:** React
-* **Language:** TypeScript
-* **Styling:** React Bootstrap
-* **Data Source:** NASA Open APIs
+
+- **Framework:** React
+- **Language:** TypeScript
+- **Styling:** React Bootstrap
+- **Data Source:** NASA Open APIs
 
 ---
 
 ## 🚀 Features & Roadmap
 
 ### ✅ Current Features
-* **NASA Data Integration:** Seamless fetching and display of astronomical data (APOD, etc.).
-* **Modern UI:** A responsive and clean interface built with React Bootstrap.
-* **Type Safety:** Robust codebase using TypeScript.
+
+- **NASA Data Integration:** Seamless fetching and display of astronomical data (APOD, etc.).
+- **Modern UI:** A responsive and clean interface built with React Bootstrap.
+- **Type Safety:** Robust codebase using TypeScript.
 
 ### 🔮 Future Roadmap
+
 I am actively working on expanding GalacticView into a comprehensive platform:
 
-* [ ] **Backend Service:** Developing a dedicated backend to handle user blogposts, comments, review on space experiences.
-* [ ] **Community Content:** Adding support for **User Blogs** and **Reviews**.
-* [ ] **AI Assistant:** Integration of an AI-powered bot to answer space-related questions (e.g., "What is a nebula?").
+- [ ] **Backend Service:** Developing a dedicated backend to handle user blogposts, comments, review on space experiences.
+- [ ] **Community Content:** Adding support for **User Blogs** and **Reviews**.
+- [ ] **AI Assistant:** Integration of an AI-powered bot to answer space-related questions (e.g., "What is a nebula?").
 
 ---
 
@@ -44,19 +47,22 @@ I am actively working on expanding GalacticView into a comprehensive platform:
 Follow these instructions to set up the project locally.
 
 ### Prerequisites
-* **Node.js:** Version 16 or higher.
-* **Package Manager:** Yarn or npm.
-* **Recommended Editor:** WebStorm (macOS).
+
+- **Node.js:** Version 16 or higher.
+- **Package Manager:** Yarn or npm.
+- **Recommended Editor:** WebStorm (macOS).
 
 ### Installation
 
 1.  **Clone the Repository**
+
     ```bash
     git clone https://github.com/levilevente/GalacticView.git
     cd GalacticView
     ```
 
 2.  **Install Dependencies**
+
     ```bash
     npm install
     # or
@@ -64,11 +70,11 @@ Follow these instructions to set up the project locally.
     ```
 
 3.  **Configure Environment**
-    * Obtain a free API Key from [api.nasa.gov](https://api.nasa.gov/).
-    * Create a `.env` file in the root directory.
-    * Add your key:
+    - Obtain a free API Key from [api.nasa.gov](https://api.nasa.gov/).
+    - Create a `.env` file in the root directory.
+    - Add your key:
         ```env
-        REACT_APP_NASA_API_KEY=your_key_here
+        VITE_NASA_API_KEY=your_key_here
         ```
 
 4.  **Run the Application**
@@ -81,12 +87,11 @@ Follow these instructions to set up the project locally.
 ---
 
 ## 📸 Screenshots
+
 <img width="1702" height="989" alt="image" src="https://github.com/user-attachments/assets/74e5f1ff-9f73-4a8e-955c-2a9a00888b65" />
 <img width="1701" height="947" alt="image" src="https://github.com/user-attachments/assets/60cc5c73-9f5f-46b6-99a1-83efbce6a47c" />
 
-
 ---
-
 
 ## 📄 License
 
