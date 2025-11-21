@@ -29,7 +29,7 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
                         title={data?.title}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
-                     />
+                    />
                 ) : (
                     <p>Media type not supported.</p>
                 )}

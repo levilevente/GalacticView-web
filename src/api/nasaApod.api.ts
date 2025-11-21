@@ -19,3 +19,10 @@ export async function getNasaApodData(): Promise<NasaApodDataType> {
     const res = await nasaEpicApi.get<NasaApodDataType>('');
     return res.data;
 }
+
+export async function getNasaApodDataByDate(date: string): Promise<NasaApodDataType> {
+    const res = await nasaEpicApi.get<NasaApodDataType>('', {
+        params: { date }
+    });
+    return res.data;
+}
