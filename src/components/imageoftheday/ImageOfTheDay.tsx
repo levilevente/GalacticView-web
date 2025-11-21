@@ -1,5 +1,4 @@
 import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
-import { useNasaApodData } from '../../query/nasaApodData.query.ts';
 import style from './ImageOfTheDay.module.css';
 
 interface ImageOfTheDayProps {
@@ -7,14 +6,19 @@ interface ImageOfTheDayProps {
 }
 
 function ImageOfTheDay(props: ImageOfTheDayProps) {
-    const { data: queryData } = useNasaApodData();
-    const data = props.data ?? queryData;
+    const data = props.data;
 
     return (
         <div className={`imageOfTheDay ${style.imageOfTheDayContainer}`}>
             <div className={style.leftDiv}>
-                <p className={'section-tagline'}>TODAY</p>
-                <h1>Image of the Day</h1>
+                {data?.date === new Date().toISOString().split('T')[0] ? (
+                    <>
+                        <p className={'section-tagline'}>TODAY</p>
+                        <h1>Image of the Day</h1>
+                    </>
+                ) : (
+                    <h2 className={'section-tagline'}>{data?.date}</h2>
+                )}
                 <h3>{data?.title}</h3>
                 <p>{data?.explanation}</p>
             </div>

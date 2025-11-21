@@ -1,6 +1,6 @@
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import DatePicker from 'react-datepicker';
@@ -14,6 +14,10 @@ interface Props {
 function ImageOfTheDayHistory(props: Props) {
     const { setSearchedDate } = { ...props };
     const [date, setDate] = useState<Date>(new Date());
+
+    useEffect(() => {
+        console.log(date);
+    }, [date]);
 
     return (<>
         <Form.Group controlId="datePicker" className={style.formGroup}>
