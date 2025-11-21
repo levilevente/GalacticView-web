@@ -31,9 +31,9 @@ While currently a frontend visualization tool, the project has an ambitious road
 * **Type Safety:** Robust codebase using TypeScript.
 
 ### 🔮 Future Roadmap
-We are actively working on expanding GalacticView into a comprehensive platform:
+I am actively working on expanding GalacticView into a comprehensive platform:
 
-* [ ] **Backend Service:** Developing a dedicated backend to handle user data.
+* [ ] **Backend Service:** Developing a dedicated backend to handle user blogposts, comments, review on space experiences.
 * [ ] **Community Content:** Adding support for **User Blogs** and **Reviews**.
 * [ ] **AI Assistant:** Integration of an AI-powered bot to answer space-related questions (e.g., "What is a nebula?").
 
@@ -81,6 +81,8 @@ Follow these instructions to set up the project locally.
 ---
 
 ## 📸 Screenshots
+<img width="1702" height="989" alt="image" src="https://github.com/user-attachments/assets/74e5f1ff-9f73-4a8e-955c-2a9a00888b65" />
+<img width="1701" height="947" alt="image" src="https://github.com/user-attachments/assets/60cc5c73-9f5f-46b6-99a1-83efbce6a47c" />
 
 
 ---
