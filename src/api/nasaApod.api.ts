@@ -15,7 +15,14 @@ export const nasaEpicApi = axios.create({
     }
 });
 
-export async function getNasaApodData(): Promise<NasaApodDataType> {
+export async function getNasaApodData(date?: Date | null): Promise<NasaApodDataType> {
+    if (date instanceof Date) {
+        const dateString = date.toISOString().split('T')[0];
+        const res = await nasaEpicApi.get<NasaApodDataType>('', {
+            params: { date: dateString }
+        });
+        return res.data;
+    }
     const res = await nasaEpicApi.get<NasaApodDataType>('');
     return res.data;
 }

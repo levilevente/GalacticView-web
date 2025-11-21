@@ -3,10 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import { getNasaApodData } from '../api/nasaApod.api.ts';
 import { queryClient } from './common.query.ts';
 
-export function useNasaApodData() {
+export function useNasaApodData(date?: Date | null) {
     const query = useQuery({
         queryKey: ['nasaApodData'],
-        queryFn: getNasaApodData,
+        queryFn: () => getNasaApodData(date),
     });
 
     const refetchWithInvalidation = async () => {
