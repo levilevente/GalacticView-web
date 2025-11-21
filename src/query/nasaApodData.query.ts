@@ -12,7 +12,7 @@ export function useNasaApodData(date?: Date | null) {
     });
 
     const refetchWithInvalidation = async () => {
-        await queryClient.invalidateQueries({ queryKey: ['nasaApodData'] });
+        await queryClient.invalidateQueries({ queryKey: ['nasaApodData', key] });
         return query.refetch();
     };
 

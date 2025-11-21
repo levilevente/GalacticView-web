@@ -14,14 +14,8 @@ function ImageOfTheDayPage() {
             <ImageOfTheDayContainer />
             <div className={`line ${style.spaceBeforeLine}`} />
             <div className={style.searchedDateImageContainer}>
-                <ImageOfTheDayHistory setSearchedDate={setSearchedDate} key="today" />
-                {searchedDate ? (
-                    <div>
-                        <ImageOfTheDayContainer date={searchedDate} key={searchedDate.toISOString()} />
-                    </div>
-                ) : (
-                    <></>
-                )}
+                <ImageOfTheDayHistory setSearchedDate={setSearchedDate} />
+                {searchedDate ? <ImageOfTheDayContainer date={searchedDate} key={searchedDate.toISOString()} /> : null}
             </div>
         </div>
     );

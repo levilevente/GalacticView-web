@@ -6,7 +6,7 @@ interface ImageOfTheDayContainerProps {
 }
 
 function ImageOfTheDayContainer(props: ImageOfTheDayContainerProps) {
-    const { date } = { ...props };
+    const { date } = props;
     const { data, isLoading, isError } = useNasaApodData(date);
 
     if (isLoading) return <p style={{ marginLeft: '10rem' }}>Loading...</p>;

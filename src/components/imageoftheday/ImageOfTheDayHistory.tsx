@@ -12,7 +12,7 @@ interface Props {
 }
 
 function ImageOfTheDayHistory(props: Props) {
-    const { setSearchedDate } = { ...props };
+    const { setSearchedDate } = props;
     const [date, setDate] = useState<Date>(new Date());
 
     return (
@@ -24,14 +24,14 @@ function ImageOfTheDayHistory(props: Props) {
                 <div className={style.datePickerContainer}>
                     <DatePicker
                         selected={date}
-                        onChange={(d) => setDate(d!)}
+                        onChange={(d) => d && setDate(d)}
                         className={`form-control ${style.datePicker}`}
                         dateFormat="MM/dd/yyyy"
                         maxDate={new Date()}
                     />
                     <Button
                         className={style.datePickerButton}
-                        type="submit"
+                        type="button"
                         size="sm"
                         variant="dark"
                         onClick={() => setSearchedDate(date)}

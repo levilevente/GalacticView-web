@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
 import style from './ImageOfTheDay.module.css';
 
@@ -7,11 +9,12 @@ interface ImageOfTheDayProps {
 
 function ImageOfTheDay(props: ImageOfTheDayProps) {
     const data = props.data;
+    const todayString = useMemo(() => new Date().toISOString().split('T')[0], []);
 
     return (
         <div className={`imageOfTheDay ${style.imageOfTheDayContainer}`}>
             <div className={style.leftDiv}>
-                {data?.date === new Date().toISOString().split('T')[0] ? (
+                {data?.date === todayString ? (
                     <>
                         <p className={'section-tagline'}>TODAY</p>
                         <h1>Image of the Day</h1>
