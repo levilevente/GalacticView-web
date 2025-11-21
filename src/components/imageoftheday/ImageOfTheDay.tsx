@@ -1,6 +1,6 @@
 import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
-import style from './ImageOfTheDay.module.css';
 import { getDateTimeZoneOffsetString } from '../../utils/dateUtils.ts';
+import style from './ImageOfTheDay.module.css';
 
 interface ImageOfTheDayProps {
     data?: NasaApodDataType;
