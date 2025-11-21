@@ -1,5 +1,5 @@
 import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
-import { getDateTimeZoneOffsetString } from '../../utils/dateUtils.ts';
+import { getUTCDateString } from '../../utils/dateUtils.ts';
 import style from './ImageOfTheDay.module.css';
 
 interface ImageOfTheDayProps {
@@ -9,7 +9,7 @@ interface ImageOfTheDayProps {
 function ImageOfTheDay(props: ImageOfTheDayProps) {
     const data = props.data;
     const today = new Date();
-    const todayString = getDateTimeZoneOffsetString(today);
+    const todayString = getUTCDateString(today);
 
     return (
         <div className={`imageOfTheDay ${style.imageOfTheDayContainer}`}>

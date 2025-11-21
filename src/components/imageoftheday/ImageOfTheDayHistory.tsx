@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import DatePicker from 'react-datepicker';
 
+import { toUTCDateOnly } from '../../utils/dateUtils.ts';
 import style from './ImageOfTheDayHistory.module.css';
 
 interface Props {
@@ -13,7 +14,8 @@ interface Props {
 
 function ImageOfTheDayHistory(props: Props) {
     const { setSearchedDate } = props;
-    const [date, setDate] = useState<Date>(new Date());
+    const todayUtc = toUTCDateOnly(new Date());
+    const [date, setDate] = useState<Date>(todayUtc);
 
     return (
         <>
@@ -27,7 +29,7 @@ function ImageOfTheDayHistory(props: Props) {
                         onChange={(d) => d && setDate(d)}
                         className={`form-control ${style.datePicker}`}
                         dateFormat="MM/dd/yyyy"
-                        maxDate={new Date(date)}
+                        maxDate={todayUtc}
                     />
                     <Button
                         className={style.datePickerButton}
