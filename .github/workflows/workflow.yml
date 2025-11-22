@@ -1,4 +1,5 @@
 name: FRONTEND CI
+
 on:
     push:
         branches:
@@ -15,7 +16,7 @@ on:
 
 jobs:
     check:
-        name: Lint, Format & Typecheck
+        name: Validation & Build
         runs-on: ubuntu-latest
         steps:
         - name: Checkout repository
@@ -30,8 +31,18 @@ jobs:
         - name: Install dependencies
           run: npm install
 
+        # 1. ACTUAL TypeScript Check (Crucial for TS projects)
+        - name: TypeScript Check
+          run: npx tsc --noEmit
+
+        # 2. Linting
         - name: Run ESLint
           run: npx eslint .
 
+        # 3. Formatting
         - name: Run Prettier
           run: npx prettier --check .
+
+        # 4. Build Test (Ensures the app actually compiles)
+        - name: Build Production Bundle
+          run: npm run build
