@@ -1,4 +1,6 @@
-import { GlassMagnifier } from 'react-image-magnifiers';
+import 'react-medium-image-zoom/dist/styles.css';
+
+import Zoom from 'react-medium-image-zoom';
 
 import type { NasaApodDataType } from '../../types/NasaApodDataType.ts';
 import { getUTCDateString } from '../../utils/dateUtils.ts';
@@ -29,15 +31,9 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
             </div>
             <div className={style.rightDiv}>
                 {data?.media_type === 'image' ? (
-                    <GlassMagnifier
-                        imageSrc={data?.url}
-                        largeImageSrc={data?.hdurl}
-                        className={style.image}
-                        square={false}
-                        magnifierSize="40%"
-                        magnifierBorderSize={3}
-                        magnifierBorderColor="rgba(255, 255, 255, 0.5)"
-                    />
+                    <Zoom>
+                        <img className={style.image} src={data?.hdurl} alt={data?.title} />
+                    </Zoom>
                 ) : data?.media_type === 'video' ? (
                     <iframe
                         width="560"

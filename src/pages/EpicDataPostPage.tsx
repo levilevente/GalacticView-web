@@ -1,5 +1,8 @@
+import 'react-medium-image-zoom/dist/styles.css';
+
 import { Carousel, Spinner } from 'react-bootstrap';
-import { GlassMagnifier } from 'react-image-magnifiers';
+import Image from 'react-bootstrap/Image';
+import Zoom from 'react-medium-image-zoom';
 import { useParams } from 'react-router';
 
 import { useNasaEpicDataByDate } from '../query/nasaEpicData.query.ts';
@@ -50,15 +53,9 @@ function EpicDataPostPage() {
                             <Carousel fade className={style.carouselContainer}>
                                 {data.map((item: NasaEpicDataType) => (
                                     <Carousel.Item key={item.identifier}>
-                                        <GlassMagnifier
-                                            imageSrc={imageUrl(item)}
-                                            largeImageSrc={imageUrl(item)}
-                                            className={style.image}
-                                            square={false}
-                                            magnifierSize="40%"
-                                            magnifierBorderSize={3}
-                                            magnifierBorderColor="rgba(255, 255, 255, 0.5)"
-                                        />
+                                        <Zoom>
+                                            <Image rounded src={imageUrl(item)} alt="epic" className={style.image} />
+                                        </Zoom>
                                         <Carousel.Caption className={style.carouselCaption}>
                                             <p>{item.date}</p>
                                         </Carousel.Caption>
