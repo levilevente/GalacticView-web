@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import type { NasaApodDataType } from '../data/NasaApodDataType.ts';
+import type { NasaApodDataType } from '../types/NasaApodDataType.ts';
 import { getUTCDateString } from '../utils/dateUtils.ts';
 
 const API_KEY = (import.meta.env.VITE_NASA_API_KEY as string) ?? 'DEMO_KEY';

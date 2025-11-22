@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import type { NasaEpicDataType, NasaEpicDataTypesForDates } from '../data/NasaEpicDataTypes.ts';
+import type { NasaEpicDataType, NasaEpicDataTypesForDates } from '../types/NasaEpicDataTypes.ts';
 
 //const API_KEY = import.meta.env.NASA_API_KEY ?? 'DEMO_KEY';
 

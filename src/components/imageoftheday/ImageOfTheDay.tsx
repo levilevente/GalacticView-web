@@ -1,4 +1,6 @@
-import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
+import { GlassMagnifier } from 'react-image-magnifiers';
+
+import type { NasaApodDataType } from '../../types/NasaApodDataType.ts';
 import { getUTCDateString } from '../../utils/dateUtils.ts';
 import style from './ImageOfTheDay.module.css';
 
@@ -27,7 +29,15 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
             </div>
             <div className={style.rightDiv}>
                 {data?.media_type === 'image' ? (
-                    <img className={style.image} src={data?.hdurl} alt={data?.title} />
+                    <GlassMagnifier
+                        imageSrc={data?.url}
+                        largeImageSrc={data?.hdurl}
+                        className={style.image}
+                        square={false}
+                        magnifierSize="40%"
+                        magnifierBorderSize={3}
+                        magnifierBorderColor="rgba(255, 255, 255, 0.5)"
+                    />
                 ) : data?.media_type === 'video' ? (
                     <iframe
                         width="560"
