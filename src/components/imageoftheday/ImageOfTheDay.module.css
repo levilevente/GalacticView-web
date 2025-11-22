@@ -15,12 +15,13 @@
     justify-content: center;
     align-items: center;
     margin-right: 9rem;
+    position: relative;
 }
 
 .image {
-    width: 100%; /* fill container width */
+    width: 80%; /* fill container width */
     height: auto; /* preserve aspect ratio */
-    max-height: 30rem; /* prevents extreme vertical stretching */
+    max-height: 60rem; /* prevents extreme vertical stretching */
     object-fit: contain;
 }
 
@@ -43,5 +44,6 @@
     .rightDiv {
         margin-right: 0 !important;
         width: 100%;
+        position: relative;
     }
 }

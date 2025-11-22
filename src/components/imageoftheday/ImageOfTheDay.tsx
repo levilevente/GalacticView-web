@@ -1,4 +1,8 @@
-import type { NasaApodDataType } from '../../data/NasaApodDataType.ts';
+import 'react-medium-image-zoom/dist/styles.css';
+
+import Zoom from 'react-medium-image-zoom';
+
+import type { NasaApodDataType } from '../../types/NasaApodDataType.ts';
 import { getUTCDateString } from '../../utils/dateUtils.ts';
 import style from './ImageOfTheDay.module.css';
 
@@ -27,7 +31,9 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
             </div>
             <div className={style.rightDiv}>
                 {data?.media_type === 'image' ? (
-                    <img className={style.image} src={data?.hdurl} alt={data?.title} />
+                    <Zoom>
+                        <img className={style.image} src={data?.hdurl} alt={data?.title} />
+                    </Zoom>
                 ) : data?.media_type === 'video' ? (
                     <iframe
                         width="560"
