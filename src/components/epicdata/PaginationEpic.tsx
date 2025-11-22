@@ -1,20 +1,6 @@
 import Pagination from 'react-bootstrap/Pagination';
-import React from 'react';
 
-const paginationStyle: React.CSSProperties = {
-    marginTop: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
-    padding: '1em 0',
-    width: '100%',
-    /*
-    position: 'absolute',
-    bottom: '0',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    textAlign: 'center',
-    */
-};
+import style from './PaginationEpic.module.css';
 
 interface PaginationProps {
     currentPage: number;
@@ -27,7 +13,7 @@ function PaginationEpic(props: PaginationProps) {
     const { start, end } = getRangeArray(currentPage, totalPages);
 
     return (
-        <Pagination style={paginationStyle}>
+        <Pagination className={`pagination-black ${style.paginationContainer}`}>
             {}
             <Pagination.First
                 onClick={() => {
@@ -68,10 +54,10 @@ function PaginationEpic(props: PaginationProps) {
     );
 }
 
-type RangeType = {
+interface RangeType {
     start: number;
     end: number;
-};
+}
 
 function getRangeArray(currentPage: number, totalPages: number): RangeType {
     let start = currentPage - 3;

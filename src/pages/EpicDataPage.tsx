@@ -1,19 +1,13 @@
+import { useMemo } from 'react';
+
+import EpicDataCard from '../components/epicdata/EpicDataCard.tsx';
 import PaginationEpic from '../components/epicdata/PaginationEpic.tsx';
 import { usePagination } from '../hooks/usePagination.ts';
 import { useNasaEpicDataDates } from '../query/nasaEpicData.query.ts';
-import React, { useMemo } from 'react';
-import EpicDataCard from '../components/epicdata/EpicDataCard.tsx';
+import style from './EpicDataPage.module.css';
 
-const epicDataStyle: React.CSSProperties = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: '20px',
-    padding: '20px',
-};
-
-function EpicData() {
-    const { data: dates = [] } = useNasaEpicDataDates();
+function EpicDataPage() {
+    const { data: dates = [], isLoading } = useNasaEpicDataDates();
     const { currentPage, itemsPerPage, goToPage, totalPages } = usePagination(dates);
 
     const epicDataDates = useMemo(() => {
@@ -22,13 +16,13 @@ function EpicData() {
     }, [dates, currentPage, itemsPerPage]);
 
     return (
-        <div style={epicDataStyle}>
-            {epicDataDates.map((dateStr, key) => (
-                <EpicDataCard date={dateStr} key={key} />
+        <div className={style.epicDataContainer}>
+            {epicDataDates.map((dateStr) => (
+                <EpicDataCard key={dateStr} date={dateStr} isLoading={isLoading} />
             ))}
             <PaginationEpic goToPage={goToPage} totalPages={totalPages} currentPage={currentPage} />
         </div>
     );
 }
 
-export default EpicData;
+export default EpicDataPage;

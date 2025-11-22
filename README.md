@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# 🌌 GalacticView
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/React_Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Node](https://img.shields.io/badge/Node.js-%3E%3D16-green?style=for-the-badge&logo=node.js)
 
-Currently, two official plugins are available:
+> A sleek, modern web interface for exploring the cosmos, powered by **NASA's Open APIs**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📖 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**GalacticView** is a web application designed to make astronomical data accessible and visually stunning. Built with **React** and **TypeScript**, it fetches real-time data from NASA to render high-quality space imagery and information in a user-friendly dashboard.
 
-## Expanding the ESLint configuration
+While currently a frontend visualization tool, the project has an ambitious roadmap to evolve into a full-stack community platform with AI integration.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠 Tech Stack
 
-```js
-export default defineConfig([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
+- **Framework:** React
+- **Language:** TypeScript
+- **Styling:** React Bootstrap
+- **Data Source:** NASA Open APIs
 
-            // Remove tseslint.configs.recommended and replace with this
-            tseslint.configs.recommendedTypeChecked,
-            // Alternatively, use this for stricter rules
-            tseslint.configs.strictTypeChecked,
-            // Optionally, add this for stylistic rules
-            tseslint.configs.stylisticTypeChecked,
+---
 
-            // Other configs...
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
-```
+## 🚀 Features & Roadmap
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### ✅ Current Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+- **NASA Data Integration:** Seamless fetching and display of astronomical data (APOD, etc.).
+- **Modern UI:** A responsive and clean interface built with React Bootstrap.
+- **Type Safety:** Robust codebase using TypeScript.
 
-export default defineConfig([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
-            // Enable lint rules for React
-            reactX.configs['recommended-typescript'],
-            // Enable lint rules for React DOM
-            reactDom.configs.recommended,
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
-```
+### 🔮 Future Roadmap
+
+I am actively working on expanding GalacticView into a comprehensive platform:
+
+- [ ] **Backend Service:** Developing a dedicated backend to handle user blogposts, comments, review on space experiences.
+- [ ] **Community Content:** Adding support for **User Blogs** and **Reviews**.
+- [ ] **AI Assistant:** Integration of an AI-powered bot to answer space-related questions (e.g., "What is a nebula?").
+
+---
+
+## ⚙️ Getting Started
+
+Follow these instructions to set up the project locally.
+
+### Prerequisites
+
+- **Node.js:** Version 16 or higher.
+- **Package Manager:** Yarn or npm.
+- **Recommended Editor:** WebStorm (macOS).
+
+### Installation
+
+1.  **Clone the Repository**
+
+    ```bash
+    git clone https://github.com/levilevente/GalacticView.git
+    cd GalacticView
+    ```
+
+2.  **Install Dependencies**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Configure Environment**
+    - Obtain a free API Key from [api.nasa.gov](https://api.nasa.gov/).
+    - Create a `.env` file in the root directory.
+    - Add your key:
+        ```env
+        VITE_NASA_API_KEY=your_key_here
+        ```
+
+4.  **Run the Application**
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
+
+---
+
+## 📸 Screenshots
+
+<img width="1702" height="989" alt="image" src="https://github.com/user-attachments/assets/74e5f1ff-9f73-4a8e-955c-2a9a00888b65" />
+<img width="1701" height="947" alt="image" src="https://github.com/user-attachments/assets/60cc5c73-9f5f-46b6-99a1-83efbce6a47c" />
+
+---
+
+## 📄 License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.

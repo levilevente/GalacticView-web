@@ -1,8 +1,11 @@
-import { createRoot } from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Root from './Root.tsx';
+import './App.css';
+
 import { QueryClientProvider } from '@tanstack/react-query';
+import { createRoot } from 'react-dom/client';
+
 import { queryClient } from './query/common.query.ts';
+import Root from './Root.tsx';
 
 const root = document.getElementById('root');
 

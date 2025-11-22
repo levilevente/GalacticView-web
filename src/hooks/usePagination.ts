@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { NasaEpicDataTypesForDates } from '../data/NasaEpicDataTypes.ts';
+
+import type { NasaEpicDataTypesForDates } from '../types/NasaEpicDataTypes.ts';
 
 export function usePagination(data: NasaEpicDataTypesForDates[], itemsPerPage = 10) {
     const [currentPage, setCurrentPage] = useState(() => {

@@ -1,4 +1,4 @@
-export type NasaEpicDataType = {
+export interface NasaEpicDataType {
     identifier: string;
     caption: string;
     image: string;
@@ -56,8 +56,8 @@ export type NasaEpicDataType = {
             q3: number;
         };
     };
-};
+}
 
-export type NasaEpicDataTypesForDates = {
+export interface NasaEpicDataTypesForDates {
     date: string;
-};
+}

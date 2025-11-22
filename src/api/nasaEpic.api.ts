@@ -1,5 +1,6 @@
 import axios from 'axios';
-import type { NasaEpicDataType, NasaEpicDataTypesForDates } from '../data/NasaEpicDataTypes.ts';
+
+import type { NasaEpicDataType, NasaEpicDataTypesForDates } from '../types/NasaEpicDataTypes.ts';
 
 //const API_KEY = import.meta.env.NASA_API_KEY ?? 'DEMO_KEY';
 
@@ -15,16 +16,16 @@ export const nasaEpicApi = axios.create({
 });
 
 export async function getNasaEpicData(): Promise<NasaEpicDataType[]> {
-    const res = await nasaEpicApi.get('');
+    const res = await nasaEpicApi.get<NasaEpicDataType[]>('');
     return res.data;
 }
 
 export async function getNasaEpicDataAllDates(): Promise<NasaEpicDataTypesForDates[]> {
-    const res = await nasaEpicApi.get('/all');
+    const res = await nasaEpicApi.get<NasaEpicDataTypesForDates[]>('/all');
     return res.data;
 }
 
 export async function getNasaEpicDataByDate(date: string): Promise<NasaEpicDataType[]> {
-    const res = await nasaEpicApi.get(`/date/${date}`);
+    const res = await nasaEpicApi.get<NasaEpicDataType[]>(`/date/${date}`);
     return res.data;
 }
