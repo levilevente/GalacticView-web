@@ -59,24 +59,8 @@
 }
 
 @media (max-width: 400px) {
-    .footerBar {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .firstDiv {
-        margin-left: 2rem;
-        margin-right: 2rem;
-        text-align: left;
-        width: auto;
-    }
-
     .secondDiv {
-        margin-left: 2rem;
-        margin-right: 2rem;
-        margin-top: 2rem;
         text-align: center;
-        width: auto;
         display: flex;
         flex-direction: column;
         gap: 1rem;

@@ -43,8 +43,8 @@
 @media (max-width: 992px) {
     .brandCentered {
         /* 2. Push it slightly to adjust visual balance */
-        margin-left: 1rem;
-        margin-right: 1rem;
+        position: fixed;
+        transform: none;
     }
 
     .navbarStyle {
