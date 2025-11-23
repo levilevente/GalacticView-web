@@ -42,10 +42,6 @@
 /* --------------------------------------------------------- */
 @media (max-width: 992px) {
     .brandCentered {
-        /* 1. Stop floating in the middle */
-        position: static;
-        transform: none;
-
         /* 2. Push it slightly to adjust visual balance */
         margin-left: 1rem;
         margin-right: 1rem;
