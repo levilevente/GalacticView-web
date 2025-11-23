@@ -5,3 +5,13 @@
     margin-left: 10rem;
     margin-top: 40px;
 }
+
+/* --------------------------------------------------------- */
+/*     MOBILE NAV FIX (Screen width < 992px)                 */
+/* --------------------------------------------------------- */
+@media (max-width: 992px) {
+    .date {
+        margin-left: 2.8rem;
+        margin-right: 2.8rem;
+    }
+}
