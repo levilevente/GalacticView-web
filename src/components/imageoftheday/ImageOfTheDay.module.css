@@ -2,6 +2,7 @@
     margin-left: 10rem;
     margin-top: 5rem;
     display: flex;
+    flex-direction: row;
 }
 
 .leftDiv {
@@ -43,7 +44,7 @@
 
     .rightDiv {
         margin-right: 0 !important;
-        width: 100%;
+        margin-left: 0;
         position: relative;
     }
 }
