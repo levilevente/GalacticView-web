@@ -9,7 +9,7 @@ import style from './NavigationBar.module.css';
 function NavigationBar() {
     return (
         <Navbar expand="lg" data-bs-theme="dark" className={style.navbarStyle}>
-            <Container>
+            <Container className="d-flex align-items-center">
                 <Form className={`d-flex ${style.searchForm}`}>
                     <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
                 </Form>
@@ -18,7 +18,7 @@ function NavigationBar() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className={`me-auto ${style.navStyle}`}>
+                    <Nav className={`ms-auto ${style.navStyle}`}>
                         <Nav.Link href="/epicdata" className={style.navLinkStyle}>
                             EpicData
                         </Nav.Link>

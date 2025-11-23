@@ -1,19 +1,19 @@
 .logoStyle {
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
 }
 
 .brandCentered {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 10;
+    padding: 0;
 }
 
 .navStyle {
     margin-left: auto;
-    justify-content: flex-end;
-    width: 100%;
     gap: 1rem;
 }
 
@@ -25,10 +25,9 @@
 }
 
 .navLinkStyle {
-    color: #fff;
+    color: #fff !important;
     font-size: 18px;
     font-weight: 500;
-    padding: 1rem;
 }
 
 .searchForm {
@@ -42,27 +41,54 @@
 /* --------------------------------------------------------- */
 @media (max-width: 992px) {
     .brandCentered {
-        /* 2. Push it slightly to adjust visual balance */
-        position: fixed;
+        position: static;
         transform: none;
+        margin-left: 12rem;
+        margin-right: auto;
     }
 
     .navbarStyle {
-        /* Allow height to grow if elements wrap */
         height: auto;
-        min-height: 90px;
         padding-top: 10px;
         padding-bottom: 10px;
     }
 
     .searchForm {
-        /* Optional: On really small screens, make search smaller */
-        max-width: 150px;
+        width: auto;
+        max-width: 140px;
+        margin-right: 0;
+    }
+
+    :global(.navbar-toggler) {
+        border-color: rgba(255,255,255,0.5);
+    }
+    :global(.navbar-toggler-icon) {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 }
 
 @media (max-width: 389px) {
     .logoStyle {
         display: none;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .brandCentered {
+        margin-left: 7rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .brandCentered {
+        /* make brand to be exactly in center between searh and the collapsed likns */
+        margin-left: 20%;
+        margin-right: auto;
+    }
+
+    .searchForm {
+        max-width: 100px;
     }
 }
