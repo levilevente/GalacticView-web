@@ -60,17 +60,17 @@ interface RangeType {
 }
 
 function getRangeArray(currentPage: number, totalPages: number): RangeType {
-    let start = currentPage - 3;
-    let end = currentPage + 3;
+    let start = currentPage - 2;
+    let end = currentPage + 2;
 
     if (start < 1) {
         start = 1;
-        end = Math.min(7, totalPages);
+        end = Math.min(5, totalPages);
     }
 
     if (end > totalPages) {
         end = totalPages;
-        start = Math.max(1, totalPages - 6);
+        start = Math.max(1, totalPages - 4);
     }
 
     return { start, end };
