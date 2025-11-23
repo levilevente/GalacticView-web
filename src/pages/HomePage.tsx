@@ -1,9 +1,10 @@
 import '../App.css';
 
-import ImageOfTheDayContainer from '../components/imageoftheday/ImageOfTheDayContainer.tsx';
-import style from './HomePage.module.css';
 import { useMemo } from 'react';
+
+import ImageOfTheDayContainer from '../components/imageoftheday/ImageOfTheDayContainer.tsx';
 import { toUTCDateOnly } from '../utils/dateUtils.ts';
+import style from './HomePage.module.css';
 
 function getMonthName(monthIndex: number): string {
     const monthNames = [
@@ -34,8 +35,8 @@ function HomePage() {
     return (
         <div>
             <p className={style.date}>
-                LIVE {getDayName(todayUtc.getDay())}, {getMonthName(todayUtc.getMonth())} {todayUtc.getDate()}, {todayUtc.getHours()}:
-                {todayUtc.getMinutes()}, {todayUtc.getTimezoneOffset()} UTC
+                LIVE {getDayName(todayUtc.getDay())}, {getMonthName(todayUtc.getMonth())} {todayUtc.getDate()},{' '}
+                {todayUtc.getHours()}:{todayUtc.getMinutes()}, {todayUtc.getTimezoneOffset()} UTC
             </p>
             <div className={'line'} />
             <div>
