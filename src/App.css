@@ -42,17 +42,17 @@ body, html {
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 38px;
     font-weight: bold;
 }
 
 h1 {
-    font-size: 42px;
+    font-size: 46px;
     font-weight: bold;
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     margin-top: 3.4rem;
     margin-bottom: 1rem;
@@ -75,6 +75,29 @@ h3 {
 /* --------------------------------------------------------- */
 /*     MOBILE & TABLET FIX (Screen width < 992px)            */
 /* --------------------------------------------------------- */
+@media (max-width: 1200px) {
+    h2 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 3.4rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 992px) {
     .line {
         width: calc(100% - 5.6rem);
