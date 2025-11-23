@@ -1,3 +1,10 @@
+.navbarStyle {
+    position: relative;
+    height: 90px;
+    background-color: #000;
+    color: #fff;
+}
+
 .logoStyle {
     width: 40px;
     height: 40px;
@@ -13,15 +20,7 @@
 }
 
 .navStyle {
-    margin-left: auto;
     gap: 1rem;
-}
-
-.navbarStyle {
-    position: relative;
-    height: 90px;
-    background-color: #000;
-    color: #fff;
 }
 
 .navLinkStyle {
@@ -32,7 +31,7 @@
 
 .searchForm {
     margin-right: auto;
-    max-width: 200px;
+    max-width: 130px;
     width: 100%;
 }
 
@@ -40,23 +39,42 @@
 /*     MOBILE NAV FIX (Screen width < 992px)                 */
 /* --------------------------------------------------------- */
 @media (max-width: 992px) {
+    .gridContainer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        width: 100%;
+    }
+
+    .searchForm {
+        justify-self: start;
+        width: 100%;
+        max-width: 160px;
+        margin: 0;
+    }
+
     .brandCentered {
         position: static;
         transform: none;
-        margin-left: 12rem;
-        margin-right: auto;
+        margin: 0;
+        justify-self: center;
+        padding: 0 10px;
+    }
+
+    :global(.navbar-toggler) {
+        justify-self: end;
+    }
+
+    .navCollapse {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin-top: 1rem;
     }
 
     .navbarStyle {
         height: auto;
         padding-top: 10px;
         padding-bottom: 10px;
-    }
-
-    .searchForm {
-        width: auto;
-        max-width: 140px;
-        margin-right: 0;
     }
 
     :global(.navbar-toggler) {
@@ -68,24 +86,13 @@
     }
 }
 
-@media (max-width: 767px) {
-    .brandCentered {
-        margin-left: calc(50% - 10rem);
-    }
-}
-
-@media (max-width: 575px) {
-    .brandCentered {
-        margin-left: calc(50% - 7rem);
-    }
-
-    .searchForm {
-        max-width: 100px;
-    }
-}
-
 @media (max-width: 389px) {
+    .searchForm {
+        max-width: 120px;
+    }
+
     .logoStyle {
-        display: none;
+        width: 30px;
+        height: 30px;
     }
 }

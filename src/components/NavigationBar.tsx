@@ -9,7 +9,7 @@ import style from './NavigationBar.module.css';
 function NavigationBar() {
     return (
         <Navbar expand="lg" data-bs-theme="dark" className={style.navbarStyle}>
-            <Container className="d-flex align-items-center">
+            <Container className={style.gridContainer}>
                 <Form className={`d-flex ${style.searchForm}`}>
                     <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
                 </Form>
