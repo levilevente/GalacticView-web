@@ -59,4 +59,8 @@
         /* Optional: On really small screens, make search smaller */
         max-width: 150px;
     }
+
+    .logoStyle {
+        display: none;
+    }
 }
