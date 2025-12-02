@@ -3,19 +3,21 @@ import * as React from 'react';
 import { Button, Card, CloseButton, Form, InputGroup } from 'react-bootstrap';
 import { IoSend } from 'react-icons/io5';
 
+import useAgentChat from '../hooks/useAgentChat.ts';
 import style from './AgentChatWidget.module.css';
 
 function AgentChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [inputMessage, setInputMessage] = useState('');
     const [welcomeMessageShown, setWelcomeMessageShown] = useState(false);
-    const [messages, setMessages] = useState<{ sender: 'user' | 'agent'; text: string }[]>([]);
+
+    const { messages, isLoading, sendMessage } = useAgentChat();
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
     };
 
-    const handleSendMessage = (e: React.FormEvent) => {
+    const handleSendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!welcomeMessageShown) {
             setWelcomeMessageShown(true);
@@ -23,13 +25,12 @@ function AgentChatWidget() {
 
         if (inputMessage.trim() === '') return;
 
-        setMessages((prevMessages) => [
-            ...prevMessages,
-            { sender: 'user', text: inputMessage.trim() },
-            { sender: 'agent', text: "I'm here to help you explore the universe! Ask me anything about space." },
-        ]);
-
-        setInputMessage('');
+        try {
+            await sendMessage(inputMessage.trim());
+            setInputMessage('');
+        } catch (err) {
+            console.error('sendMessage failed', err);
+        }
     };
 
     return (
@@ -53,13 +54,16 @@ function AgentChatWidget() {
                                     key={`msg-${index}`}
                                     className={msg.sender === 'user' ? style.userMessage : style.agentMessage}
                                 >
-                                    <p className={style.messageText}>{msg.text}</p>
+                                    <p className={style.messageText}>{msg.message}</p>
                                 </div>
                             ))}
+                            {isLoading ? (
+                                <div className={style.loader} />
+                            ) : null}
                         </div>
                     </Card.Body>
                     <Card.Footer className={style.cardFooter}>
-                        <Form onSubmit={handleSendMessage}>
+                        <Form onSubmit={(e) => void handleSendMessage(e)}>
                             <InputGroup className={style.inputGroup}>
                                 <Form.Control
                                     as="textarea"
