@@ -1,0 +1,94 @@
+.agentContainer {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.agentButton {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.agentButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.agentLogo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card {
+    width: 360px;
+    height: 520px;
+    border: none;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease-out;
+}
+
+.cardHeader {
+    background-color: #000000;
+    color: white;
+    border-bottom: none;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aiCardLogo {
+    width: 32px;
+    height: 32px;
+}
+
+.cardBody {
+    flex: 1;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.cardBodyWelcomeText {
+    text-align: center;
+    color: #6c757d;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+
+.cardFooter {
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+.inputGroup {
+    position: relative;
+}
+
+.chatInput {
+    resize: none;
+    border-radius: 1.5rem;
+    padding-right: 3rem;
+    justify-content: center;
+    font-size: 1rem;
+    display: flex;
+}
