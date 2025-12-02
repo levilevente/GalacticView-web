@@ -20,8 +20,7 @@ function AgentChatWidget() {
 
     return (
         <div className={style.agentContainer}>
-
-            {isOpen ?
+            {isOpen ? (
                 <Card className={style.card}>
                     <Card.Header className={style.cardHeader}>
                         <div className="d-flex align-items-center gap-2">
@@ -47,13 +46,13 @@ function AgentChatWidget() {
                                     onChange={(e) => setInputMessage(e.target.value)}
                                 />
                                 <Button type="submit" variant="dark" className={style.sendButton}>
-                                    <IoSend size={18}/>
+                                    <IoSend size={18} />
                                 </Button>
                             </InputGroup>
                         </Form>
                     </Card.Footer>
                 </Card>
-                : null}
+            ) : null}
 
             <div
                 className={style.agentButton}
@@ -61,12 +60,14 @@ function AgentChatWidget() {
                 tabIndex={0}
                 aria-label="Toggle Agent Chat"
                 role="button"
-                onKeyDown={() => { /* empty */ }}
+                onKeyDown={() => {
+                    /* empty */
+                }}
             >
                 <img src="/logo/ai-logo.png" alt="agent logo" className={style.agentLogo} />
             </div>
         </div>
     );
-};
+}
 
 export default AgentChatWidget;
