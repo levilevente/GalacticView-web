@@ -8,6 +8,8 @@ import style from './AgentChatWidget.module.css';
 function AgentChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [inputMessage, setInputMessage] = useState('');
+    const [welcomeMessageShown, setWelcomeMessageShown] = useState(false);
+    const [messages, setMessages] = useState<{ sender: 'user' | 'agent'; text: string }[]>([]);
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
@@ -15,6 +17,18 @@ function AgentChatWidget() {
 
     const handleSendMessage = (e: React.FormEvent) => {
         e.preventDefault();
+        if (!welcomeMessageShown) {
+            setWelcomeMessageShown(true);
+        }
+
+        if (inputMessage.trim() === '') return;
+
+        setMessages((prevMessages) => [
+            ...prevMessages,
+            { sender: 'user', text: inputMessage.trim() },
+            { sender: 'agent', text: "I'm here to help you explore the universe! Ask me anything about space." },
+        ]);
+
         setInputMessage('');
     };
 
@@ -31,7 +45,17 @@ function AgentChatWidget() {
                     </Card.Header>
                     <Card.Body className={style.cardBody}>
                         <div className={style.cardBodyWelcomeText}>
-                            <p>👋 How can I help you explore the cosmos today?</p>
+                            {!welcomeMessageShown ? <p>👋 How can I help you explore the cosmos today?</p> : null}
+                        </div>
+                        <div className={style.messagesContainer}>
+                            {messages.map((msg, index) => (
+                                <div
+                                    key={`msg-${index}`}
+                                    className={msg.sender === 'user' ? style.userMessage : style.agentMessage}
+                                >
+                                    <p className={style.messageText}>{msg.text}</p>
+                                </div>
+                            ))}
                         </div>
                     </Card.Body>
                     <Card.Footer className={style.cardFooter}>
