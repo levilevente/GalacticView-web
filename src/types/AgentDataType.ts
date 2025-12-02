@@ -1,6 +1,6 @@
 export interface AgentPromptTypeOut {
     question: string;
-    date: string
+    date: string;
 }
 
 export interface AgentDataTypeIn {
@@ -8,4 +8,3 @@ export interface AgentDataTypeIn {
     content: string;
     keyMetrics: string[];
 }
-

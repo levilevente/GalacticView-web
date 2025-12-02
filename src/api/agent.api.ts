@@ -11,7 +11,7 @@ export const agentApi = axios.create({
     },
 });
 
-export async function sendPromptToAgent(message: string):Promise<AgentDataTypeIn> {
+export async function sendPromptToAgent(message: string): Promise<AgentDataTypeIn> {
     const promptData: AgentPromptTypeOut = {
         question: message,
         date: getUTCDateString(new Date()),

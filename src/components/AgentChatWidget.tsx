@@ -57,9 +57,7 @@ function AgentChatWidget() {
                                     <p className={style.messageText}>{msg.message}</p>
                                 </div>
                             ))}
-                            {isLoading ? (
-                                <div className={style.loader} />
-                            ) : null}
+                            {isLoading ? <div className={style.loader} /> : null}
                         </div>
                     </Card.Body>
                     <Card.Footer className={style.cardFooter}>

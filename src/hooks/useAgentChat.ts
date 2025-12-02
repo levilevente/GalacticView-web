@@ -40,8 +40,6 @@ const useAgentChat = () => {
                 keyMetrics: response.keyMetrics,
             };
 
-            console.log(agentMessage);
-
             setMessages((prev) => [...prev, agentMessage]);
         } catch (error) {
             const errorMessage: ChatMessage = {
