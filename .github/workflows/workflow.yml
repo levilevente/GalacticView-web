@@ -26,10 +26,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.11.0'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       # 1. ACTUAL TypeScript Check (Crucial for TS projects)
       - name: TypeScript Check
@@ -45,11 +45,11 @@ jobs:
 
       # 4. Security Audit
       - name: Security Audit
-        run: npm audit --audit-level=high
+        run: yarn audit --level high
 
       # 5. Build Test (Ensures the app actually compiles)
       - name: Build Production Bundle
-        run: npm run build
+        run: yarn build
 
       # 6. Quick Bundle Size Report
       - name: Check Bundle Size

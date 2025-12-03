@@ -3,8 +3,10 @@ import axios from 'axios';
 import type { AgentDataTypeIn, AgentPromptTypeOut } from '../types/AgentDataType.ts';
 import { getUTCDateString } from '../utils/dateUtils.ts';
 
+const baseUrl = import.meta.env.VITE_AGENT_API_BASE_URL as string;
+
 export const agentApi = axios.create({
-    baseURL: import.meta.env.VITE_AGENT_API_BASE_URL as string,
+    baseURL: baseUrl || '',
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

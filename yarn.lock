@@ -3156,6 +3156,11 @@ use-latest@^1.2.1:
   dependencies:
     use-isomorphic-layout-effect "^1.1.1"
 
+uuid@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-13.0.0.tgz#263dc341b19b4d755eb8fe36b78d95a6b65707e8"
+  integrity sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==
+
 vite@^7.1.7:
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/vite/-/vite-7.2.2.tgz#17dd62eac2d0ca0fa90131c5f56e4fefb8845362"

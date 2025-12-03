@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as React from 'react';
 import { Button, Card, CloseButton, Form, InputGroup } from 'react-bootstrap';
 import { IoSend } from 'react-icons/io5';
@@ -11,6 +11,13 @@ function AgentChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [inputMessage, setInputMessage] = useState('');
     const { messages, isLoading, sendMessage } = useAgentChat();
+    const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
@@ -18,9 +25,9 @@ function AgentChatWidget() {
 
     const handleSendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
-        setInputMessage('');
 
         if (inputMessage.trim() === '') return;
+        setInputMessage('');
 
         try {
             await sendMessage(inputMessage.trim());
@@ -52,9 +59,9 @@ function AgentChatWidget() {
                             {messages.length === 0 ? <p>👋 How can I help you explore the cosmos today?</p> : null}
                         </div>
                         <div className={style.messagesContainer}>
-                            {messages.map((msg, index) => (
+                            {messages.map((msg) => (
                                 <div
-                                    key={`msg-${index}`}
+                                    key={msg.id}
                                     className={msg.sender === 'user' ? style.userMessage : style.agentMessage}
                                 >
                                     <p className={style.messageText}>{msg.message}</p>
@@ -62,6 +69,7 @@ function AgentChatWidget() {
                             ))}
                             {isLoading ? <div className={style.loader} /> : null}
                         </div>
+                        <div ref={messagesEndRef} />
                     </Card.Body>
                     <Card.Footer className={style.cardFooter}>
                         <Form onSubmit={(e) => void handleSendMessage(e)} onKeyDown={handleKeyDown}>
@@ -90,8 +98,11 @@ function AgentChatWidget() {
                 tabIndex={0}
                 aria-label="Toggle Agent Chat"
                 role="button"
-                onKeyDown={() => {
-                    /* empty */
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleChat();
+                    }
                 }}
             >
                 <img src="/logo/ai-logo.png" alt="agent logo" className={style.agentLogo} />

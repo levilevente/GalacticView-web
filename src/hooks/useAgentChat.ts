@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { sendPromptToAgent } from '../api/agent.api.ts';
 
 export interface ChatMessage {
-    id: number;
+    id: string;
     message: string;
     title?: string;
     content?: string;
@@ -38,7 +39,7 @@ const useAgentChat = () => {
 
     const sendMessage = async (msg: string) => {
         const userMessage: ChatMessage = {
-            id: Date.now(),
+            id: uuidv4(),
             message: msg,
             sender: 'user',
         };
@@ -50,7 +51,7 @@ const useAgentChat = () => {
             const response = await sendPromptToAgent(msg);
 
             const agentMessage: ChatMessage = {
-                id: Date.now() + 1,
+                id: uuidv4(),
                 message: response.content,
                 sender: 'agent',
                 title: response.title,
@@ -61,7 +62,7 @@ const useAgentChat = () => {
             setMessages((prev) => [...prev, agentMessage]);
         } catch (error) {
             const errorMessage: ChatMessage = {
-                id: Date.now() + 2,
+                id: uuidv4(),
                 message: 'Sorry, there was an error processing your request.',
                 sender: 'agent',
                 isError: true,
