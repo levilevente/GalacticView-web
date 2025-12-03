@@ -7,6 +7,8 @@ import TextareaAutosize from 'react-textarea-autosize';
 import useAgentChat from '../hooks/useAgentChat.ts';
 import style from './AgentChatWidget.module.css';
 
+const MAX_MESSAGE_LENGTH = 512;
+
 function AgentChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [inputMessage, setInputMessage] = useState('');
@@ -26,7 +28,7 @@ function AgentChatWidget() {
     const handleSendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (inputMessage.trim() === '') return;
+        if (inputMessage.trim() === '' || inputMessage.length > MAX_MESSAGE_LENGTH) return;
         setInputMessage('');
 
         try {

@@ -4,6 +4,9 @@ import type { AgentDataTypeIn, AgentPromptTypeOut } from '../types/AgentDataType
 import { getUTCDateString } from '../utils/dateUtils.ts';
 
 const baseUrl = import.meta.env.VITE_AGENT_API_BASE_URL as string;
+if (!baseUrl) {
+    throw new Error('VITE_AGENT_API_BASE_URL environment variable is not configured');
+}
 
 export const agentApi = axios.create({
     baseURL: baseUrl || '',
