@@ -97,6 +97,7 @@ Follow these instructions to set up the project locally.
   <br />
   <img width="800" src="https://github.com/user-attachments/assets/17b1de17-e134-47d9-8b50-60f9a8b2d83a" alt="Screen 4" />
 </p>
+
 ---
 
 ## 📄 License
