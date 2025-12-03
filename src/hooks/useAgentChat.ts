@@ -19,7 +19,7 @@ const useAgentChat = () => {
     const [messages, setMessages] = useState<ChatMessage[]>(() => {
         try {
             const storedMessages = sessionStorage.getItem(SESSION_STORAGE_KEY);
-            return storedMessages ? JSON.parse(storedMessages) as ChatMessage[] : [];
+            return storedMessages ? (JSON.parse(storedMessages) as ChatMessage[]) : [];
         } catch (error) {
             console.error('Failed to parse stored messages:', error);
             return [];
