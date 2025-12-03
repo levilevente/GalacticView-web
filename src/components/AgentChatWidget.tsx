@@ -10,8 +10,6 @@ import style from './AgentChatWidget.module.css';
 function AgentChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [inputMessage, setInputMessage] = useState('');
-    const [welcomeMessageShown, setWelcomeMessageShown] = useState(false);
-
     const { messages, isLoading, sendMessage } = useAgentChat();
 
     const toggleChat = () => {
@@ -19,12 +17,8 @@ function AgentChatWidget() {
     };
 
     const handleSendMessage = async (e: React.FormEvent) => {
-
         e.preventDefault();
         setInputMessage('');
-        if (!welcomeMessageShown) {
-            setWelcomeMessageShown(true);
-        }
 
         if (inputMessage.trim() === '') return;
 
@@ -55,7 +49,7 @@ function AgentChatWidget() {
                     </Card.Header>
                     <Card.Body className={style.cardBody}>
                         <div className={style.cardBodyWelcomeText}>
-                            {!welcomeMessageShown ? <p>👋 How can I help you explore the cosmos today?</p> : null}
+                            {messages.length === 0 ? <p>👋 How can I help you explore the cosmos today?</p> : null}
                         </div>
                         <div className={style.messagesContainer}>
                             {messages.map((msg, index) => (

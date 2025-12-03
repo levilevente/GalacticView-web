@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { sendPromptToAgent } from '../api/agent.api.ts';
 
@@ -13,8 +13,26 @@ export interface ChatMessage {
     error?: string;
 }
 
+const SESSION_STORAGE_KEY = 'agent_chat_messages';
+
 const useAgentChat = () => {
-    const [messages, setMessages] = useState<ChatMessage[]>([]);
+    const [messages, setMessages] = useState<ChatMessage[]>(() => {
+        try {
+            const storedMessages = sessionStorage.getItem(SESSION_STORAGE_KEY);
+            return storedMessages ? JSON.parse(storedMessages) as ChatMessage[] : [];
+        } catch (error) {
+            console.error('Failed to parse stored messages:', error);
+            return [];
+        }
+    });
+
+    useEffect(() => {
+        try {
+            sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(messages));
+        } catch (error) {
+            console.error('Failed to store messages:', error);
+        }
+    }, [messages]);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -57,6 +75,8 @@ const useAgentChat = () => {
 
     const clearChat = () => {
         setMessages([]);
+        sessionStorage.removeItem(SESSION_STORAGE_KEY);
+        setIsLoading(false);
     };
 
     return {
