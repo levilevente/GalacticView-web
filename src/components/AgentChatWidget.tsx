@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as React from 'react';
 import { Button, Card, CloseButton, Form, InputGroup } from 'react-bootstrap';
 import { IoSend } from 'react-icons/io5';
+import TextareaAutosize from 'react-textarea-autosize';
 
 import useAgentChat from '../hooks/useAgentChat.ts';
 import style from './AgentChatWidget.module.css';
@@ -18,7 +19,9 @@ function AgentChatWidget() {
     };
 
     const handleSendMessage = async (e: React.FormEvent) => {
+
         e.preventDefault();
+        setInputMessage('');
         if (!welcomeMessageShown) {
             setWelcomeMessageShown(true);
         }
@@ -27,9 +30,15 @@ function AgentChatWidget() {
 
         try {
             await sendMessage(inputMessage.trim());
-            setInputMessage('');
         } catch (err) {
             console.error('sendMessage failed', err);
+        }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            void handleSendMessage(e as unknown as React.FormEvent);
         }
     };
 
@@ -61,17 +70,18 @@ function AgentChatWidget() {
                         </div>
                     </Card.Body>
                     <Card.Footer className={style.cardFooter}>
-                        <Form onSubmit={(e) => void handleSendMessage(e)}>
+                        <Form onSubmit={(e) => void handleSendMessage(e)} onKeyDown={handleKeyDown}>
                             <InputGroup className={style.inputGroup}>
                                 <Form.Control
-                                    as="textarea"
-                                    rows={1}
+                                    as={TextareaAutosize}
+                                    minRows={1}
+                                    maxRows={5}
                                     placeholder={'Ask me anything about space...'}
                                     className={style.chatInput}
                                     value={inputMessage}
                                     onChange={(e) => setInputMessage(e.target.value)}
                                 />
-                                <Button type="submit" variant="dark" className={style.sendButton}>
+                                <Button type="submit" variant="dark" disabled={isLoading}>
                                     <IoSend size={18} />
                                 </Button>
                             </InputGroup>

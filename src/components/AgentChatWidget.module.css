@@ -89,9 +89,13 @@
 .chatInput {
     resize: none;
     border-radius: 1.5rem;
-    padding-right: 3rem;
-    justify-content: center;
     font-size: 1rem;
+    padding-right: 1rem;
+}
+
+.chatInput:focus {
+    box-shadow: 0 0 0 0.2rem rgba(231, 231, 231, 0.39);
+    border-color: #dee2e6;
 }
 
 .messagesContainer {
