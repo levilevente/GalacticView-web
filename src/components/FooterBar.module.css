@@ -32,3 +32,38 @@
     margin-right: 10px;
     margin-bottom: 10px;
 }
+
+/* --------------------------------------------------------- */
+/*     MOBILE NAV FIX (Screen width < 992px)                 */
+/* --------------------------------------------------------- */
+@media (max-width: 992px) {
+    .footerBar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .firstDiv {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        text-align: left;
+        width: auto;
+    }
+
+    .secondDiv {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        text-align: left;
+        width: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .secondDiv {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+    }
+}

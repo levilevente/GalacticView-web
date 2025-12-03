@@ -88,8 +88,15 @@ Follow these instructions to set up the project locally.
 
 ## 📸 Screenshots
 
-<img width="1702" height="989" alt="image" src="https://github.com/user-attachments/assets/74e5f1ff-9f73-4a8e-955c-2a9a00888b65" />
-<img width="1701" height="947" alt="image" src="https://github.com/user-attachments/assets/60cc5c73-9f5f-46b6-99a1-83efbce6a47c" />
+<p align="center">
+  <img width="800" src="https://github.com/user-attachments/assets/8d218c1a-f26d-4d6f-b6ff-1ce82a64e843" alt="Screen 1" />
+  <br />
+  <img width="800" src="https://github.com/user-attachments/assets/378663fe-4775-422f-a3a3-f075f0490ea9" alt="Screen 2" />
+  <br />
+  <img width="800" src="https://github.com/user-attachments/assets/25893b35-7545-4791-8095-dfed9abf1bcf" alt="Screen 3" />
+  <br />
+  <img width="800" src="https://github.com/user-attachments/assets/17b1de17-e134-47d9-8b50-60f9a8b2d83a" alt="Screen 4" />
+</p>
 
 ---
 

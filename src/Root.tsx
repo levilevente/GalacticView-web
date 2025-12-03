@@ -2,6 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import AgentChatWidget from './components/AgentChatWidget.tsx';
 import FooterBar from './components/FooterBar.tsx';
 import NavigationBar from './components/NavigationBar.tsx';
 import BlogPostPage from './pages/BlogPostPage.tsx';
@@ -27,6 +28,7 @@ function Root() {
                         </Routes>
                     </main>
                     <FooterBar />
+                    <AgentChatWidget />
                 </BrowserRouter>
             </div>
         </div>

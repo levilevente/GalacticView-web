@@ -32,8 +32,8 @@ function HomePage() {
     return (
         <div>
             <p className={style.date}>
-                LIVE {getDayName(date.getDay())}, {getMonthName(date.getMonth())} {date.getDate()}, {date.getHours()}:
-                {date.getMinutes()}, {date.getTimezoneOffset()} UTC
+                LIVE {getDayName(date.getDay())}, {getMonthName(date.getMonth())} {date.getDate()}, {date.getUTCHours()}
+                :{date.getUTCMinutes()}, {date.getTimezoneOffset()} UTC
             </p>
             <div className={'line'} />
             <div>
