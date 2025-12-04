@@ -5,13 +5,13 @@ export interface NasaImageAndVideoLibraryType {
         items: NasaImageAndVideoLibraryType[];
         metadata: {
             total_hits: number;
-        },
+        };
         links: {
             href: string;
             rel: string;
             prompt: string;
         }[];
-    }
+    };
 }
 
 export interface NasaImageAndVideoLibraryItemType {
@@ -45,5 +45,5 @@ export interface NasaImageAndVideoLibraryItemAssetType {
         items: {
             href: string;
         }[];
-    }
+    };
 }

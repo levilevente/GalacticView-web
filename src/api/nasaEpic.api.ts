@@ -2,7 +2,6 @@ import axios from 'axios';
 
 import type { NasaEpicDataType, NasaEpicDataTypesForDates } from '../types/NasaEpicDataTypes.ts';
 
-
 export const nasaEpicApi = axios.create({
     baseURL: `https://epic.gsfc.nasa.gov/api/natural/`,
     headers: {

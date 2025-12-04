@@ -15,6 +15,7 @@ function NavigationBar() {
         e.preventDefault();
 
         const data = await searchNasaLibrary(query);
+        // eslint-disable-next-line no-console
         console.log(data);
     };
 
@@ -22,7 +23,13 @@ function NavigationBar() {
         <Navbar expand="lg" data-bs-theme="dark" className={style.navbarStyle}>
             <Container className={style.gridContainer}>
                 <Form className={`d-flex ${style.searchForm}`} onSubmit={(e) => void searchHandler(e)}>
-                    <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" onChange={(e) => setQuery(e.target.value)} />
+                    <Form.Control
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
                 </Form>
                 <Navbar.Brand href="/" className={style.brandCentered}>
                     <Image src="/logo/logo-light.png" alt="Logo" className={style.logoStyle} />

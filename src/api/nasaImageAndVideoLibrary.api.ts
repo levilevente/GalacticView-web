@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-import type { NasaImageAndVideoLibraryItemAssetType, NasaImageAndVideoLibraryType } from '../types/NasaImageAndVideoLibraryType.ts';
-
+import type {
+    NasaImageAndVideoLibraryItemAssetType,
+    NasaImageAndVideoLibraryType,
+} from '../types/NasaImageAndVideoLibraryType.ts';
 
 export const nasaEpicApi = axios.create({
     baseURL: `https://images-api.nasa.gov`,
@@ -20,4 +22,3 @@ export async function searchNasaLibraryAsset(nasaId: string): Promise<NasaImageA
     const res = await nasaEpicApi.get<NasaImageAndVideoLibraryItemAssetType>(`/asset/${nasaId}`);
     return res.data;
 }
-
