@@ -2,7 +2,7 @@ export interface NasaImageAndVideoLibraryType {
     collection: {
         version: string;
         href: string;
-        items: NasaImageAndVideoLibraryType[];
+        items: NasaImageAndVideoLibraryItemType[];
         metadata: {
             total_hits: number;
         };

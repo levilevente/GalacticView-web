@@ -6,17 +6,26 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import { searchNasaLibrary } from '../api/nasaImageAndVideoLibrary.api.ts';
+import type { NasaImageAndVideoLibraryType } from '../types/NasaImageAndVideoLibraryType.ts';
 import style from './NavigationBar.module.css';
+import SearchResults from './search/SearchResults.tsx';
 
 function NavigationBar() {
     const [query, setQuery] = useState('');
+    const [results, setResults] = useState<NasaImageAndVideoLibraryType | null>(null);
+    const [showResults, setShowResults] = useState(false);
 
-    const searchHandler = async (e: FormEvent<HTMLFormElement>) => {
+    const searchHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const data = await searchNasaLibrary(query);
-        // eslint-disable-next-line no-console
-        console.log(data);
+        searchNasaLibrary(query).then(results => {
+            setResults(results);
+            setShowResults(true);
+            // eslint-disable-next-line no-console
+            console.log(results);
+        }).catch(error => {
+            console.error('Error fetching search results:', error);
+        });
     };
 
     return (
@@ -30,6 +39,7 @@ function NavigationBar() {
                         aria-label="Search"
                         onChange={(e) => setQuery(e.target.value)}
                     />
+                    {showResults ? <SearchResults results={results}/> : null}
                 </Form>
                 <Navbar.Brand href="/" className={style.brandCentered}>
                     <Image src="/logo/logo-light.png" alt="Logo" className={style.logoStyle} />
