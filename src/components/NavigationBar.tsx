@@ -18,14 +18,16 @@ function NavigationBar() {
     const searchHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        searchNasaLibrary(query).then(results => {
-            setResults(results);
-            setShowResults(true);
-            // eslint-disable-next-line no-console
-            console.log(results);
-        }).catch(error => {
-            console.error('Error fetching search results:', error);
-        });
+        searchNasaLibrary(query)
+            .then((results) => {
+                setResults(results);
+                setShowResults(true);
+                // eslint-disable-next-line no-console
+                console.log(results);
+            })
+            .catch((error) => {
+                console.error('Error fetching search results:', error);
+            });
     };
 
     return (
@@ -39,7 +41,7 @@ function NavigationBar() {
                         aria-label="Search"
                         onChange={(e) => setQuery(e.target.value)}
                     />
-                    {showResults ? <SearchResults results={results}/> : null}
+                    {showResults ? <SearchResults results={results} /> : null}
                 </Form>
                 <Navbar.Brand href="/" className={style.brandCentered}>
                     <Image src="/logo/logo-light.png" alt="Logo" className={style.logoStyle} />
