@@ -10,6 +10,7 @@ import EpicDataPage from './pages/EpicDataPage.tsx';
 import EpicDataPostPage from './pages/EpicDataPostPage.tsx';
 import HomePage from './pages/HomePage.tsx';
 import ImageOfTheDayPage from './pages/ImageOfTheDayPage.tsx';
+import SearchItemPage from './pages/SearchItemPage.tsx';
 
 function Root() {
     return (
@@ -25,6 +26,7 @@ function Root() {
                             <Route path="/blogpost" element={<BlogPostPage />} />
                             <Route path="/imageoftheday" element={<ImageOfTheDayPage />} />
                             <Route path="/epicdata/:epicDataDate" element={<EpicDataPostPage />} />
+                            <Route path="/search/item/:nasaId" element={<SearchItemPage />} />
                         </Routes>
                     </main>
                     <FooterBar />
