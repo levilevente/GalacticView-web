@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import { searchNasaLibraryAsset, searchNasaLibraryMetadata } from '../api/nasaImageAndVideoLibrary.api.ts';
-import type { NasaImageAndVideoLibraryItemAssetType, NasaImageAndVideoLibraryItemMetadataType } from '../types/NasaImageAndVideoLibraryType.ts';
+import type {
+    NasaImageAndVideoLibraryItemAssetType,
+    NasaImageAndVideoLibraryItemMetadataType,
+} from '../types/NasaImageAndVideoLibraryType.ts';
 
 function returnImagesOnly(assets: NasaImageAndVideoLibraryItemAssetType) {
     return assets.collection.items.filter((item) => {
@@ -27,7 +30,7 @@ export function useNasaItem(nasaId: string | undefined) {
             try {
                 const [metadataResponse, assetsResponse] = await Promise.all([
                     searchNasaLibraryMetadata(nasaId),
-                    searchNasaLibraryAsset(nasaId)
+                    searchNasaLibraryAsset(nasaId),
                 ]);
                 if (isMounted) {
                     setMetadata(metadataResponse);

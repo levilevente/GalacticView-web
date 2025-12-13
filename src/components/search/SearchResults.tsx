@@ -17,10 +17,6 @@ function SearchResults(props: SearchResultsProps) {
     const navigate = useNavigate();
 
     const clickedItem = async (item: NasaImageAndVideoLibraryItemType) => {
-        // eslint-disable-next-line no-console
-        console.log(item.data[0]);
-        // eslint-disable-next-line no-console
-        item.links.forEach((link) => console.log(link.href));
         searchClosedOrSearched();
         await navigate(`/search/item/${item.data[0].nasa_id}`);
     };

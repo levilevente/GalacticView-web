@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 import type {
-    NasaImageAndVideoLibraryItemAssetType, NasaImageAndVideoLibraryItemMetadataType,
+    NasaImageAndVideoLibraryItemAssetType,
+    NasaImageAndVideoLibraryItemMetadataType,
     NasaImageAndVideoLibraryType,
 } from '../types/NasaImageAndVideoLibraryType.ts';
 
@@ -24,7 +25,7 @@ export async function searchNasaLibraryAsset(nasaId: string): Promise<NasaImageA
 }
 
 export async function searchNasaLibraryMetadata(nasaId: string): Promise<NasaImageAndVideoLibraryItemMetadataType> {
-    const res1 = await nasaEpicApi.get<{"location" : string}>(`/metadata/${nasaId}`);
+    const res1 = await nasaEpicApi.get<{ location: string }>(`/metadata/${nasaId}`);
     const location: string = res1.data.location;
     const res2 = await axios.get<NasaImageAndVideoLibraryItemMetadataType>(location);
     return res2.data;
