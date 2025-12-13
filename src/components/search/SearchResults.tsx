@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router';
+
 import type {
     NasaImageAndVideoLibraryItemType,
     NasaImageAndVideoLibraryType,
@@ -6,17 +8,21 @@ import style from './SearchResults.module.css';
 
 interface SearchResultsProps {
     results: NasaImageAndVideoLibraryType | null;
+    searchClosedOrSearched: () => void;
 }
 
 function SearchResults(props: SearchResultsProps) {
-    const { results } = props;
+    const { results, searchClosedOrSearched } = props;
     const items: NasaImageAndVideoLibraryItemType[] = results ? getDistinctItemsByTitle(results.collection.items) : [];
+    const navigate = useNavigate();
 
-    const clickedItem = (item: NasaImageAndVideoLibraryItemType) => {
+    const clickedItem = async (item: NasaImageAndVideoLibraryItemType) => {
         // eslint-disable-next-line no-console
         console.log(item.data[0]);
         // eslint-disable-next-line no-console
         item.links.forEach((link) => console.log(link.href));
+        searchClosedOrSearched();
+        await navigate(`/search/item/${item.data[0].nasa_id}`);
     };
 
     return (
@@ -29,12 +35,12 @@ function SearchResults(props: SearchResultsProps) {
                     <div
                         className={style.searchResultsItem}
                         key={`${item.data[0].title}-${i}`}
-                        onClick={() => clickedItem(item)}
+                        onClick={() => void clickedItem(item)}
                         role="button"
                         tabIndex={0}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
-                                clickedItem(item);
+                                void clickedItem(item);
                             }
                         }}
                     >

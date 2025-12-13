@@ -47,3 +47,12 @@ export interface NasaImageAndVideoLibraryItemAssetType {
         }[];
     };
 }
+
+export interface NasaImageAndVideoLibraryItemMetadataType {
+    "AVAIL:Description": string;
+    "AVAIL:Title": string;
+    "AVAIL:Keywords": string[];
+    "AVAIL:Location": string;
+    "AVAIL:DateCreated": string;
+    "AVAIL:Photographer": string;
+}

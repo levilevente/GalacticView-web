@@ -30,6 +30,12 @@ function NavigationBar() {
             });
     };
 
+    const searchClosedOrSearched = () => {
+        setShowResults(false);
+        setQuery('');
+        setResults(null);
+    };
+
     return (
         <Navbar expand="lg" data-bs-theme="dark" className={style.navbarStyle}>
             <Container className={style.gridContainer}>
@@ -41,7 +47,7 @@ function NavigationBar() {
                         aria-label="Search"
                         onChange={(e) => setQuery(e.target.value)}
                     />
-                    {showResults ? <SearchResults results={results} /> : null}
+                    {showResults ? <SearchResults results={results} searchClosedOrSearched={searchClosedOrSearched} /> : null}
                 </Form>
                 <Navbar.Brand href="/" className={style.brandCentered}>
                     <Image src="/logo/logo-light.png" alt="Logo" className={style.logoStyle} />
