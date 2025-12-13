@@ -20,12 +20,12 @@ export interface NasaImageAndVideoLibraryItemType {
         center: string;
         date_created: string;
         description: string;
-        description_508: string;
+        description_508?: string;
         keywords: string[];
-        location: string;
+        location?: string;
         media_type: string;
         nasa_id: string;
-        photographer: string;
+        photographer?: string;
         title: string;
     }[];
     links: {

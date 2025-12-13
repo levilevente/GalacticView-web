@@ -35,7 +35,8 @@ export function useNasaItem(nasaId: string | undefined) {
                 if (isMounted) {
                     setMetadata(metadataResponse);
                     setAssets(assetsResponse);
-                    setImage(returnImagesOnly(assetsResponse)[0]?.href || null);
+                    const images = returnImagesOnly(assetsResponse);
+                    setImage(images.length > 0 ? images[0].href : null);
                 }
             } catch (err) {
                 if (isMounted) {

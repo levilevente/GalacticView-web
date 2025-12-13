@@ -36,6 +36,9 @@ function SearchResults(props: SearchResultsProps) {
                         tabIndex={0}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
+                                if (e.key === ' ') {
+                                    e.preventDefault();
+                                }
                                 void clickedItem(item);
                             }
                         }}
@@ -49,20 +52,14 @@ function SearchResults(props: SearchResultsProps) {
 }
 
 function getDistinctItemsByTitle(items: NasaImageAndVideoLibraryItemType[]): NasaImageAndVideoLibraryItemType[] {
-    const allValues = items.map((item) => item.data[0].title);
-
-    const uniqueValues = Array.from(new Set(allValues));
-
-    const distinctItems: NasaImageAndVideoLibraryItemType[] = [];
-
-    uniqueValues.forEach((title) => {
-        const foundItem = items.find((item) => item.data[0].title === title);
-        if (foundItem) {
-            distinctItems.push(foundItem);
+    const titleMap = new Map<string, NasaImageAndVideoLibraryItemType>();
+    for (const item of items) {
+        const title = item.data[0].title;
+        if (!titleMap.has(title)) {
+            titleMap.set(title, item);
         }
-    });
-
-    return distinctItems;
+    }
+    return Array.from(titleMap.values());
 }
 
 export default SearchResults;
