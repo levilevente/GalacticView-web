@@ -3,12 +3,18 @@ import { useEffect, useState } from 'react';
 import { searchNasaLibraryAsset, searchNasaLibraryMetadata } from '../api/nasaImageAndVideoLibrary.api.ts';
 import type { NasaImageAndVideoLibraryItemAssetType, NasaImageAndVideoLibraryItemMetadataType } from '../types/NasaImageAndVideoLibraryType.ts';
 
+function returnImagesOnly(assets: NasaImageAndVideoLibraryItemAssetType) {
+    return assets.collection.items.filter((item) => {
+        return item.href.endsWith('.jpg') || item.href.endsWith('.png') || item.href.endsWith('.jpeg');
+    });
+}
+
 export function useNasaItem(nasaId: string | undefined) {
     const [metadata, setMetadata] = useState<NasaImageAndVideoLibraryItemMetadataType | null>(null);
     const [assets, setAssets] = useState<NasaImageAndVideoLibraryItemAssetType | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const [images, setImages] = useState<string[]>([]);
+    const [image, setImage] = useState<string | null>(null);
 
     useEffect(() => {
         if (!nasaId) return;
@@ -26,7 +32,7 @@ export function useNasaItem(nasaId: string | undefined) {
                 if (isMounted) {
                     setMetadata(metadataResponse);
                     setAssets(assetsResponse);
-                    setImages(assetsResponse.collection.items.map(item => item.href));
+                    setImage(returnImagesOnly(assetsResponse)[0]?.href || null);
                 }
             } catch (err) {
                 if (isMounted) {
@@ -46,5 +52,5 @@ export function useNasaItem(nasaId: string | undefined) {
         };
     }, [nasaId]);
 
-    return { metadata, assets, images, loading, error };
+    return { metadata, assets, image, loading, error };
 }

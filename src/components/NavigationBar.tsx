@@ -22,8 +22,6 @@ function NavigationBar() {
             .then((results) => {
                 setResults(results);
                 setShowResults(true);
-                // eslint-disable-next-line no-console
-                console.log(results);
             })
             .catch((error) => {
                 console.error('Error fetching search results:', error);
@@ -45,6 +43,7 @@ function NavigationBar() {
                         placeholder="Search"
                         className="me-2"
                         aria-label="Search"
+                        value={query}
                         onChange={(e) => setQuery(e.target.value)}
                     />
                     {showResults ? <SearchResults results={results} searchClosedOrSearched={searchClosedOrSearched} /> : null}
