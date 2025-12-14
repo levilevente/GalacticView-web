@@ -7,7 +7,9 @@ i18n.use(Backend)
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
+        lng: 'en',
         fallbackLng: 'en',
+        load: 'languageOnly',
         debug: import.meta.env.DEV,
         interpolation: {
             escapeValue: false, // React already does escaping

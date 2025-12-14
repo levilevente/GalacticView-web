@@ -49,6 +49,8 @@ jobs:
 
       # 5. Build Test (Ensures the app actually compiles)
       - name: Build Production Bundle
+        env:
+          VITE_AGENT_API_BASE_URL: ${{ secrets.VITE_AGENT_API_BASE_URL }}
         run: yarn build
 
       # 6. Quick Bundle Size Report
