@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useTranslation } from 'react-i18next';
 
 import { searchNasaLibrary } from '../api/nasaImageAndVideoLibrary.api.ts';
 import type { NasaImageAndVideoLibraryType } from '../types/NasaImageAndVideoLibraryType.ts';
@@ -11,6 +12,8 @@ import style from './NavigationBar.module.css';
 import SearchResults from './search/SearchResults.tsx';
 
 function NavigationBar() {
+    const { t } = useTranslation();
+
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<NasaImageAndVideoLibraryType | null>(null);
     const [showResults, setShowResults] = useState(false);
@@ -57,13 +60,13 @@ function NavigationBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className={`ms-auto ${style.navStyle}`}>
                         <Nav.Link href="/epicdata" className={style.navLinkStyle}>
-                            EpicData
+                            {t('navigation.epicData')}
                         </Nav.Link>
                         <Nav.Link href="/imageoftheday" className={style.navLinkStyle}>
-                            Image of the Day
+                            {t('navigation.imageOfTheDay')}
                         </Nav.Link>
                         <Nav.Link href="/blogpost" className={style.navLinkStyle}>
-                            Blogpost
+                            {t('navigation.blogPost')}
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

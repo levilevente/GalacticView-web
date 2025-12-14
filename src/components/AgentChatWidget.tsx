@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as React from 'react';
 import { Button, Card, CloseButton, Form, InputGroup } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import { IoSend } from 'react-icons/io5';
 import TextareaAutosize from 'react-textarea-autosize';
 
@@ -10,6 +11,8 @@ import style from './AgentChatWidget.module.css';
 const MAX_MESSAGE_LENGTH = 512;
 
 function AgentChatWidget() {
+    const { t } = useTranslation();
+
     const [isOpen, setIsOpen] = useState(false);
     const [inputMessage, setInputMessage] = useState('');
     const { messages, isLoading, sendMessage } = useAgentChat();
@@ -58,7 +61,7 @@ function AgentChatWidget() {
                     </Card.Header>
                     <Card.Body className={style.cardBody}>
                         <div className={style.cardBodyWelcomeText}>
-                            {messages.length === 0 ? <p>👋 How can I help you explore the cosmos today?</p> : null}
+                            {messages.length === 0 ? <p>{t('agent.welcome')}</p> : null}
                         </div>
                         <div className={style.messagesContainer}>
                             {messages.map((msg) => (
@@ -80,7 +83,7 @@ function AgentChatWidget() {
                                     as={TextareaAutosize}
                                     minRows={1}
                                     maxRows={5}
-                                    placeholder={'Ask me anything about space...'}
+                                    placeholder={t('agent.placeholder')}
                                     className={style.chatInput}
                                     value={inputMessage}
                                     onChange={(e) => setInputMessage(e.target.value)}

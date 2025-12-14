@@ -2,6 +2,7 @@ import 'react-medium-image-zoom/dist/styles.css';
 
 import { Carousel, Spinner } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
+import { useTranslation } from 'react-i18next';
 import Zoom from 'react-medium-image-zoom';
 import { useParams } from 'react-router';
 
@@ -16,6 +17,7 @@ function imageUrl(item: NasaEpicDataType) {
 function EpicDataPostPage() {
     const { epicDataDate } = useParams<{ epicDataDate: string }>();
     const { data, isLoading, isError, error } = useNasaEpicDataByDate(epicDataDate ?? '');
+    const { t } = useTranslation();
 
     return (
         <div>
@@ -25,29 +27,14 @@ function EpicDataPostPage() {
                     {isLoading ? <Spinner animation="border" /> : null}
                     <div className={style.mainContainer}>
                         <div className={style.leftContainer}>
-                            <h2>NASA&#39;s EPIC camera onboard the NOAA DSCOVR spacecraft</h2>
-                            <p className={style.paragraphUnderHeading}>
-                                The stunning &#34;Blue Marble&#34; images of the full, sunlit side of Earth are captured
-                                daily by the Earth Polychromatic Imaging Camera (EPIC) aboard NOAA&#39;s Deep Space
-                                Climate Observatory (DSCOVR) satellite. Positioned a million miles away, DSCOVR provides
-                                a unique, continuous view of our dynamic planet as it rotates, offering a fresh
-                                perspective on weather patterns, clouds, and natural landscapes.
-                            </p>
-                            <h3>Camera and Satellite</h3>
-                            <p>
-                                The Earth Polychromatic Imaging Camera (EPIC) is the instrument, and it is mounted on
-                                the Deep Space Climate Observatory (DSCOVR) satellite.
-                            </p>
-                            <h3>Location</h3>
-                            <p>
-                                The satellite is positioned about a million miles away, between the Earth and the sun,
-                                which allows it to capture the entire sunlit side of the planet.
-                            </p>
-                            <h3>Image Capture</h3>
-                            <p>
-                                EPIC takes multiple images of Earth&#39;s sunlit face each day, with each full-color
-                                image being a composite of three separate images.
-                            </p>
+                            <h2>{t('epicDataPost.title')}</h2>
+                            <p className={style.paragraphUnderHeading}>{t('epicDataPost.description')}</p>
+                            <h3>{t('epicDataPost.cameraAndSatelliteTitle')}</h3>
+                            <p>{t('epicDataPost.cameraAndSatelliteDescription')}</p>
+                            <h3>{t('epicDataPost.locationTitle')}</h3>
+                            <p>{t('epicDataPost.locationDescription')}</p>
+                            <h3>{t('epicDataPost.imageCaptureTitle')}</h3>
+                            <p>{t('epicDataPost.imageCaptureDescription')}</p>
                         </div>
                         <div className={style.rightContainer}>
                             <Carousel fade className={style.carouselContainer}>
