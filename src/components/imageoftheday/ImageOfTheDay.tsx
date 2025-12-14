@@ -1,5 +1,6 @@
 import 'react-medium-image-zoom/dist/styles.css';
 
+import { useTranslation } from 'react-i18next';
 import Zoom from 'react-medium-image-zoom';
 
 import type { NasaApodDataType } from '../../types/NasaApodDataType.ts';
@@ -11,6 +12,8 @@ interface ImageOfTheDayProps {
 }
 
 function ImageOfTheDay(props: ImageOfTheDayProps) {
+    const { t } = useTranslation();
+
     const data = props.data;
     const today = new Date();
     const todayString = getUTCDateString(today);
@@ -20,8 +23,8 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
             <div className={style.leftDiv}>
                 {data?.date === todayString ? (
                     <>
-                        <p className={'section-tagline'}>TODAY</p>
-                        <h1>Image of the Day</h1>
+                        <p className={'section-tagline'}>{t('imageOfTheDay.today')}</p>
+                        <h1>{t('imageOfTheDay.title')}</h1>
                     </>
                 ) : (
                     <h2 className={'section-tagline'}>{data?.date}</h2>
@@ -44,7 +47,7 @@ function ImageOfTheDay(props: ImageOfTheDayProps) {
                         allowFullScreen
                     />
                 ) : (
-                    <p>Media type not supported.</p>
+                    <p>{t('imageOfTheDay.errorImage')}</p>
                 )}
             </div>
         </div>

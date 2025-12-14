@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
 import type {
@@ -12,6 +13,8 @@ interface SearchResultsProps {
 }
 
 function SearchResults(props: SearchResultsProps) {
+    const { t } = useTranslation();
+
     const { results, searchClosedOrSearched } = props;
     const items: NasaImageAndVideoLibraryItemType[] = results ? getDistinctItemsByTitle(results.collection.items) : [];
     const navigate = useNavigate();
@@ -24,9 +27,9 @@ function SearchResults(props: SearchResultsProps) {
     return (
         <div className={style.searchResultsContainer}>
             {items.length === 0 ? (
-                <p>Error FIX IT</p>
+                <p>{t('searchResults.error')}</p>
             ) : (
-                /*Only the top 5 distinct based on title*/
+                /*only the top 5 distinct based on title*/
                 items.slice(0, 5).map((item, i) => (
                     <div
                         className={style.searchResultsItem}
