@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import DatePicker from 'react-datepicker';
+import { useTranslation } from 'react-i18next';
 
 import { toUTCDateOnly } from '../../utils/dateUtils.ts';
 import style from './ImageOfTheDayHistory.module.css';
@@ -13,6 +14,8 @@ interface Props {
 }
 
 function ImageOfTheDayHistory(props: Props) {
+    const { t } = useTranslation();
+
     const { setSearchedDate } = props;
     const todayUtc = useMemo(() => toUTCDateOnly(new Date()), []);
     const [date, setDate] = useState<Date>(todayUtc);
@@ -22,7 +25,7 @@ function ImageOfTheDayHistory(props: Props) {
         <>
             <Form.Group controlId="datePicker" className={style.formGroup}>
                 <Form.Label>
-                    <h3>Search for images from the past</h3>
+                    <h3>{t('imageOfTheDay.history.title')}</h3>
                 </Form.Label>
                 <div className={style.datePickerContainer}>
                     <DatePicker
@@ -40,7 +43,7 @@ function ImageOfTheDayHistory(props: Props) {
                         variant="dark"
                         onClick={() => setSearchedDate(date)}
                     >
-                        Search for image
+                        {t('imageOfTheDay.history.search')}
                     </Button>
                 </div>
             </Form.Group>
