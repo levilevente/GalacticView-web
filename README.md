@@ -39,7 +39,8 @@ I am actively working on expanding GalacticView into a comprehensive platform:
 - [ ] **Backend Service:** Developing a dedicated backend to handle user blogposts, comments, review on space experiences.
 - [ ] **Community Content:** Adding support for **User Blogs** and **Reviews**.
 - [x] **AI Assistant:** Integration of an AI-powered bot to answer space-related questions (e.g., "What is a nebula?").
-> 🤖 **Note:** The source code for the AI Assistant service is hosted separately at **[galacticview-agent](https://github.com/levilevente/galacticview-agent)**.
+    > 🤖 **Note:** The source code for the AI Assistant service is hosted separately at **[galacticview-agent](https://github.com/levilevente/galacticview-agent)**.
+
 ---
 
 ## ⚙️ Getting Started
