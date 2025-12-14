@@ -83,7 +83,7 @@ function AgentChatWidget() {
                                     as={TextareaAutosize}
                                     minRows={1}
                                     maxRows={5}
-                                    placeholder={t('agent.header')}
+                                    placeholder={t('agent.placeholder')}
                                     className={style.chatInput}
                                     value={inputMessage}
                                     onChange={(e) => setInputMessage(e.target.value)}

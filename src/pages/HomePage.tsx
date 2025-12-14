@@ -1,11 +1,12 @@
 import '../App.css';
 
+import type { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import ImageOfTheDayContainer from '../components/imageoftheday/ImageOfTheDayContainer.tsx';
 import style from './HomePage.module.css';
 
-function getMonthName(monthIndex: number, t: (arg0: string) => string): string {
+function getMonthName(monthIndex: number, t: TFunction): string {
     const monthNames = [
         t('months.january'),
         t('months.february'),
